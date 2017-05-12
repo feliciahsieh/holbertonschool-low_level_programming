@@ -7,31 +7,32 @@
  */
 int main(void)
 {
-	int i = 0;
-	int tens = 0;
-	int ones = 0;
-	int j = 0;
-	int jtens = 0;
-	int jones =0;
+	int i;
+	int tens;
+	int ones;
+	int j;
+	int jtens;
+	int jones;
 
 	for(i=0;i<100;i++)
 	{
 		ones = i % 10;
 		tens = i / 10;
-		if(tens==0)
+
+		for(j=i+1;j<100;j++)
 		{
-			putchar('0');
-			putchar('0');
-		} else
-		{
-			putchar('0'+tens);
-			putchar('0'+ones);
+			printf("%d ",i);
+			printf("%d",j);
+
+			if(i<98 && j<99)
+			{
+				printf(", ");
+			}
 		}
 
-		if((i*tens + ones) < 900)
+		if((i<=97) && (j<=100))
 		{
-			putchar(',');
-			putchar(' ');
+			printf(",");
 		}
 	}
 
