@@ -7,26 +7,26 @@
  */
 int main(void)
 {
-	int i, tens, ones, j=1, jtens, jones;
+	int i, tens, ones, j = 1, jtens, jones;
 
 	for (i = 0; i < 100; i++)
 	{
 		ones = i % 10;
 		tens = i / 10;
 
-		if (!((i==0) && (j==1)) && (!((i==98) && (j==100))) )
+		if (!((i == 0) && (j == 1)) && (!((i == 98) && (j == 100))))
 		{
 			putchar(' ');
 		}
 		for (j = i + 1; j < 100; j++)
 		{
-			if (!((i==0) && (j==1)))
+			if (!((i == 0) && (j == 1)))
 			{
 				putchar(',');
-				putchar(' ' );
+				putchar(' ');
 			}
 
-			if(j==100)
+			if (j == 100)
 			{
 				continue;
 			}
