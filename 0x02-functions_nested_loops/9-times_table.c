@@ -21,10 +21,10 @@ void times_table(void)
 			xOnes = result % 10;
 
 			/* For before the number */
-			if ((xTens>0))
+			if ((xTens > 0))
 			{
 				_putchar(xTens + '0');
-			} else if(y!=0)
+			} else if (y != 0)
 			{
 				_putchar(' ');
 			}
@@ -34,14 +34,11 @@ void times_table(void)
 			_putchar(xOnes + '0');
 
 			/* Output proper separator */
-			if(y < 9)
+			if (y < 9)
 			{
 				_putchar(',');
 			}
-			if(y < 9)
-			{
-/*				_putchar(' '); */
-			}
+
 			if ((xOnes < 10) && (y < 9))
 			{
 				_putchar(' ');
