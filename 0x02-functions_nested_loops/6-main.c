@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdio.h>
-int _abs(int);
 
 /**
  * main - check the code for Holberton School students.

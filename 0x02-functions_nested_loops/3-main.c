@@ -1,5 +1,4 @@
 #include "holberton.h"
-int _islower(int c);
 
 /**
  * main - check the code for Holberton School students.

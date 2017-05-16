@@ -1,5 +1,4 @@
 #include "holberton.h"
-void times_table(void)
 
 /**
  * main - check the code for Holberton School students.

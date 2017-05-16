@@ -1,5 +1,4 @@
 #include "holberton.h"
-int _isalpha(int c);
 
 /**
  * main - check if chars are [A-Za-z]
