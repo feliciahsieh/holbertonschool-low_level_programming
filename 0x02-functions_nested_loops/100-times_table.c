@@ -8,7 +8,7 @@ void print_times_table(int n)
 {
 	int x, y, xHundreds, xTens, xOnes, res;
 
-	if (!((n > 15) || (n < 0)))
+	if ((n > 0) && (n < 16))
 	{
 		for (x = 0; x < n + 1; x++)
 		{
@@ -34,5 +34,6 @@ void print_times_table(int n)
 			}
 			_putchar('\n');
 		}
-	}
+	} else if (n==0)
+		_putchar('\n');
 }
