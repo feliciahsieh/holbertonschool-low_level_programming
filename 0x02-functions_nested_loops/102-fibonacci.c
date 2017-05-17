@@ -12,7 +12,7 @@ int main(void)
 	int i;
 
 	printf("%ld, %ld, ", fib1, fib2);
-	for (i = 3; i < 50; i++)
+	for (i = 3; i <= 50; i++)
 	{
 		new = fib1 + fib2;
 		printf("%ld", new);
