@@ -17,7 +17,7 @@ int main(void)
 		new = fib1 + fib2;
 		printf("%ld", new);
 
-		if (i < 49)
+		if (i < 50)
 		{
 			printf(",");
 			printf(" ");
