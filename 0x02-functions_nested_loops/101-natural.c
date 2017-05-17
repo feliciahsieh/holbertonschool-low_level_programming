@@ -11,17 +11,17 @@
 int main(void)
 {
 	int i, j;
-	long int sumfelicia=0;
+	long int sumfelicia = 0;
 
 	for (i = 1; i < 1024; i++)
 	{
 		if (!(i % 3) || (!(i % 5)))
 		{
-			sumfelicia+=i;
+			sumfelicia += i;
 		}
 	}
 
-	printf("%ld\n",sumfelicia);
+	printf("%ld\n", sumfelicia);
 
 	return (0);
 }
