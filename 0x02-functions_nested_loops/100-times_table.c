@@ -14,9 +14,9 @@ void print_times_table(int n)
 	int xTens, xOnes;
 	int result;
 
-	for (x = 0; x < 10; x++)
+	for (x = 0; x < n + 1; x++)
 	{
-		for (y = 0; y < 10; y++)
+		for (y = 0; y < n + 1; y++)
 		{
 			result = x * y;
 			xTens = result / 10;
