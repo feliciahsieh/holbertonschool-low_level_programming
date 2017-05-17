@@ -1,10 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - computes & prints the sum of all multiples of 3 or 5
- * below 1024 (excluded), followed by a new line.
+ * main - prints the sum of all multiples of 3 or 5 < 1024
  *
- * Return: nothing 279483? 
+ * Return: zero
  *
  */
 int main(void)
