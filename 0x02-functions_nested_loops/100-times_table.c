@@ -25,10 +25,10 @@ void print_times_table(int n)
 				/* For before the number */
 				if ((xHundreds > 0))
 					_putchar(xHundreds + '0');
-				else
+				else if (y != 0)
 					_putchar(' ');
 
-				if ((xTens >= 0))
+				if ((xTens > 0) && (y != 0))
 					_putchar(xTens + '0');
 				else if (y != 0)
 					_putchar(' ');
