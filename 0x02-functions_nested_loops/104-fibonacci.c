@@ -13,13 +13,13 @@ int main(void)
 
 	printf("1, 2, ");
 
-	for (i = 3; i <= 100; i++)
+	for (i = 3; i <= 98; i++)
 	{
 		new = fib1 + fib2;
 
 		printf("%lu", new);
 
-		if (i < 100)
+		if (i < 98)
 		{
 			printf(", ");
 		}
