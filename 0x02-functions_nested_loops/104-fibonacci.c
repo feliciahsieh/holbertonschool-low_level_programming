@@ -17,7 +17,7 @@ int main(void)
 	{
 		new = fib1 + fib2;
 
-		printf("%i:%lu\n", i, new);
+		printf("%lu", new);
 
 		if (i < 100)
 		{
