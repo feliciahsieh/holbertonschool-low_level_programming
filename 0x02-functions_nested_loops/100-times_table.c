@@ -3,9 +3,10 @@
 /**
  * times_table - prints the n times table, starting with 0
  *
+ * @n: type of times table to print
  * Return: nothing
  */
-void times_table(void)
+void print_times_table(int n)
 {
 	int x;
 	int y;
