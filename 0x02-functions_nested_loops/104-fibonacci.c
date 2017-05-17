@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include <stdio.h>
 
 /**
  * main - find 1st 98 Fibonacci numbers
@@ -11,23 +11,22 @@ int main(void)
 	unsigned long int fib1 = 1, fib2 = 2, new;
 	int i;
 
-	_putchar('1');
-	_putchar(',');
-	_putchar(' ');
-	_putchar('2');
+	printf("1, 2, ");
+
 	for (i = 3; i <= 98; i++)
 	{
 		new = fib1 + fib2;
 
+		printf("%lu", new);
+
 		if (i < 98)
 		{
-			_putchar(',');
-			_putchar(' ');
+			printf(", ");
 		}
 		fib1 = fib2;
 		fib2 = new;
 	}
-	_putchar('\n');
+	printf("\n");
 
 	return (0);
 }
