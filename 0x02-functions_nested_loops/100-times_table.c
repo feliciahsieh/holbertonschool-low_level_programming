@@ -11,41 +11,49 @@ void print_times_table(int n)
 {
 	int x;
 	int y;
-	int xTens, xOnes;
+	int xHundreds, xTens, xOnes;
 	int result;
 
-	for (x = 0; x < n + 1; x++)
+	if (!((n > 15) || (n < 0)))
 	{
-		for (y = 0; y < n + 1; y++)
+		for (x = 0; x < n + 1; x++)
 		{
-			result = x * y;
-			xTens = result / 10;
-			xOnes = result % 10;
+			for (y = 0; y < n + 1; y++)
+			{
+				result = x * y;
+				xHundreds = result / 100;
+				xTens = result / 10;
+				xOnes = result % 10;
 
-			/* For before the number */
-			if ((xTens > 0))
-			{
-				_putchar(xTens + '0');
-			} else if (y != 0)
-			{
-				_putchar(' ');
+				/* For before the number */
+				if ((xHundreds > 0))
+				{
+					_putchar(xHundreds + '0');
+				}
+				if ((xTens > 0))
+				{
+					_putchar(xTens + '0');
+				} else if (y != 0)
+				{
+					_putchar(' ');
+				}
+
+				/* Output Ones digit */
+				_putchar(xOnes + '0');
+
+				/* Output proper separator */
+				if (y < 9)
+				{
+					_putchar(',');
+				}
+
+				if ((xOnes < 10) && (y < 9))
+				{
+					_putchar(' ');
+				}
+
 			}
-
-
-			/* Output Ones digit */
-			_putchar(xOnes + '0');
-
-			/* Output proper separator */
-			if (y < 9)
-			{
-				_putchar(',');
-			}
-
-			if ((xOnes < 10) && (y < 9))
-			{
-				_putchar(' ');
-			}
+			_putchar('\n');
 		}
-		_putchar('\n');
 	}
 }
