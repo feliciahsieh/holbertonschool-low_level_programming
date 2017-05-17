@@ -11,7 +11,7 @@ int main(void)
 	unsigned long int fib1 = 1, fib2 = 2, new;
 	int i;
 
-	printf("1, 2, \n");
+	printf("1, \n2, \n");
 
 	for (i = 3; i <= 98; i++)
 	{
@@ -19,10 +19,11 @@ int main(void)
 
 		printf("%lu", new);
 
-		if (i < 98)
-		{
-			printf(", ");
-		}
+                if (i < 98)
+                {
+                        printf(", \n");
+                }
+
 		fib1 = fib2;
 		fib2 = new;
 	}
