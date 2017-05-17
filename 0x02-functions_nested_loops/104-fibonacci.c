@@ -11,7 +11,7 @@ int main(void)
 	unsigned long int fib1 = 1, fib2 = 2, new;
 	int i;
 
-	printf("1, 2, ");
+	printf("1, 2, \n");
 
 	for (i = 3; i <= 98; i++)
 	{
