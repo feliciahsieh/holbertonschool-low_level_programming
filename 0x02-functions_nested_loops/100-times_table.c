@@ -16,23 +16,20 @@ void print_times_table(int n)
 			{
 				res = x * y; xHundreds = res / 100;
 				xTens = (res % 100) / 10; xOnes = res % 10;
-
-				/* For before the number */
-				if ((xHundreds > 0))
+				if ((xHundreds > 0)) /* Before Number */
 					_putchar(xHundreds + '0');
 				else if (y != 0)
 					_putchar(' ');
-
 				if ((xTens > 0) && (y != 0))
 					_putchar(xTens + '0');
-				else if ((xTens==0) && (res>100))
+				else if ((xTens == 0) && (res > 100))
 					_putchar('0');
 				else if (y != 0)
 					_putchar(' ');
 				_putchar(xOnes + '0'); /* Output Ones digit */
-				if (y < 15) /* Output proper separator */
+				if ((y < 15) && (y < n)) /* Output separator */
 					_putchar(',');
-				if ((xOnes < 10) && (y < 15))
+				if ((xOnes < 10) && (y < 15) && (y < n))
 					_putchar(' ');
 			}
 			_putchar('\n');
