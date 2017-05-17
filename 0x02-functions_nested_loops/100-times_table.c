@@ -9,10 +9,7 @@
  */
 void print_times_table(int n)
 {
-	int x;
-	int y;
-	int xHundreds, xTens, xOnes;
-	int result;
+	int x, y, xHundreds, xTens, xOnes, result;
 
 	if (!((n > 15) || (n < 0)))
 	{
@@ -27,26 +24,18 @@ void print_times_table(int n)
 
 				/* For before the number */
 				if ((xHundreds > 0))
-				{
 					_putchar(xHundreds + '0');
-				} else
-				{
+				else
 					_putchar(' ');
-				}
 
 				if ((xTens > 0))
-				{
 					_putchar(xTens + '0');
-				} else if (y != 0)
-				{
+				else if (y != 0)
 					_putchar(' ');
-				}
 
-				/* Output Ones digit */
-				_putchar(xOnes + '0');
+				_putchar(xOnes + '0'); /* Output Ones digit */
 
-				/* Output proper separator */
-				if (y < 15)
+				if (y < 15) /* Output proper separator */
 				{
 					_putchar(',');
 				}
@@ -55,7 +44,6 @@ void print_times_table(int n)
 				{
 					_putchar(' ');
 				}
-
 			}
 			_putchar('\n');
 		}
