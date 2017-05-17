@@ -24,7 +24,7 @@ void print_times_table(int n)
 					_putchar(' ');
 				if ((xTens > 0) && (y != 0))
 					_putchar(xTens + '0');
-				else if ((xTens == 0) && (res > 100))
+				else if ((xTens == 0) && (res >= 100))
 					_putchar('0');
 				else if (y != 0)
 					_putchar(' ');
