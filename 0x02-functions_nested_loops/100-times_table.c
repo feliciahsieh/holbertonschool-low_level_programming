@@ -29,7 +29,11 @@ void print_times_table(int n)
 				if ((xHundreds > 0))
 				{
 					_putchar(xHundreds + '0');
+				} else
+				{
+					_putchar(' ');
 				}
+
 				if ((xTens > 0))
 				{
 					_putchar(xTens + '0');
@@ -42,12 +46,12 @@ void print_times_table(int n)
 				_putchar(xOnes + '0');
 
 				/* Output proper separator */
-				if (y < 9)
+				if (y < 15)
 				{
 					_putchar(',');
 				}
 
-				if ((xOnes < 10) && (y < 9))
+				if ((xOnes < 10) && (y < 15))
 				{
 					_putchar(' ');
 				}
