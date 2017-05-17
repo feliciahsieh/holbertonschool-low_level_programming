@@ -19,7 +19,7 @@ void print_times_table(int n)
 			{
 				result = x * y;
 				xHundreds = result / 100;
-				xTens = result / 10;
+				xTens = (result % 100) / 10;
 				xOnes = result % 10;
 
 				/* For before the number */
