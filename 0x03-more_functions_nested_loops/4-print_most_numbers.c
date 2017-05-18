@@ -1,5 +1,9 @@
 #include "holberton.h"
-
+/**
+ * print_most_numbers - print numbers in order except for 2 and 4
+ *
+ * Return: Always 0.
+ */
 void print_most_numbers(void)
 {
 	int i;
