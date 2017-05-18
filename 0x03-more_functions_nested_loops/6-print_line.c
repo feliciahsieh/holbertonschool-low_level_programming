@@ -2,6 +2,8 @@
 /**
  * print_line - print n underscores
  *
+ * @n: number of underlines to print
+ *
  * Return: none
  */
 void print_line(int n)
