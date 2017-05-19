@@ -31,7 +31,7 @@ void print_number(int n)
 		{
 			if (i < (places - 1))
 			{
-				myDigit = myNum / hi10, _putchar(myDigit + '0');
+				myDigit = n1 / hi10, _putchar(myDigit + '0');
 				n1 = n1 - (myDigit * hi10), hi10 = hi10 / 10;
 			} else
 				_putchar(n1 + '0');
