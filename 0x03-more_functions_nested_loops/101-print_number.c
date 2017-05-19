@@ -19,17 +19,13 @@ void print_number(int n)
 			myn2 = myn2 / 10;
 			places++;
 		}
-
 		if (n < 0)
+		{
 			_putchar('-');
-
-		myNum = n;
-		if (n < 0)
 			myNum = -myNum;
-
+		}
 		for (q = 0; q < (places - 1); q++)
 			value = value * 10;
-
 		highestTen = value;
 		for (i = 0; i < (places); i++)
 		{
