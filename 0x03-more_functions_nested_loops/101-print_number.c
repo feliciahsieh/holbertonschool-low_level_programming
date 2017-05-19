@@ -8,9 +8,7 @@ void print_number(int n)
 {
 	int i, q, myNum, myn2, places = 0, value = 1, myDigit, highestTen;
 
-	if (n == 0)
-		_putchar('0');
-	else if ((n >= -2147483648) && (n <= 2147483647))
+	if (n != 0)
 	{
 		myNum = n, myn2 = n;
 		if (myn2 < 0)
@@ -41,5 +39,5 @@ void print_number(int n)
 				_putchar(myNum + '0');
 		}
 	} else
-		_putchar('\n');
+		_putchar('0');
 }
