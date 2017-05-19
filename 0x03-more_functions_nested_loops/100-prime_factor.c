@@ -10,9 +10,6 @@ int main(void)
 	unsigned long int n = 612852475143;
 	unsigned long int div;
 
-	printf("%lu", n);
-	printf("\n");
-
 	div = 2;
 	while (div < n)
 	{
