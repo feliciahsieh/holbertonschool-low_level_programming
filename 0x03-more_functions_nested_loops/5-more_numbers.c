@@ -21,10 +21,8 @@ void more_numbers(void)
 			{
 				ones = i % 10;
 			}
-			if ((i <= 9) || (i > 9))
-			{
-				_putchar(ones + '0');
-			}
+
+			_putchar(ones + '0');
 		}
 		_putchar('\n');
 	}
