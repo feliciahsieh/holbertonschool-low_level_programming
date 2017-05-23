@@ -20,6 +20,6 @@ void puts_half(char *str)
 			_putchar(str[halfPosition]);
 			halfPosition++;
 		}
-	_putchar('\n');
+		_putchar('\n');
 	}
 }
