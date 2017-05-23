@@ -7,7 +7,18 @@
  */
 char *_strcpy(char *dest, char *src)
 {
-	dest = src;
+	int length = 0, i;
+
+	while (src[length])
+		length++;
+
+	printf("l:%d\n",length);
+	for (i = 0; i <= length - 1; i++)
+	{
+		dest[i] = src[i];
+	}
+
+	dest = "hi";
 
 	return (dest);
 }
