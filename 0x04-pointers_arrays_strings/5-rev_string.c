@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 /**
  * rev_string - print and reverse string
  * @s: string to print and reverse
@@ -6,20 +7,20 @@
  */
 void rev_string(char *s)
 {
-	int i = 0, length = 0;
-	char *temp;
+	int length = 0, i = 0;
 
-	while (s[length])
-	{
+	while (s[i++] != '\0')
 		length++;
-	}
-	_putchar('\n');
+	printf("l:%d  i:%d\n", length, i);
 
-	while (length >= 0)
+	for (i = 0; i < length / 2; i++)
 	{
-		_putchar(s[length]);
-		length--;
+		s[length] = s[i];
+		s[i] = s[length - i - 1];
+		s[length - i - 1] = s[length];
+		printf("swapped i:%d with %d",i,length-i-1);
+		printf("i:%d  %s\n",i,s);
 	}
-	_putchar('\n');
-
+	printf("Final:%s\n",s);
+	s[length] = '\0';
 }
