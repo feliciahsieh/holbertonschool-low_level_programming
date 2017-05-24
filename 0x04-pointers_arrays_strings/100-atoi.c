@@ -1,58 +1,42 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
- * atoi - convert a string to integer
+ * _atoi - convert a string to integer
  * @s: string to convert
  * Return: integer version of string
  */
 int _atoi(char *s)
 {
-	int target = 0;
-	int len = 0;
-	int nMinus = 0;
-	int digitsExist = 0;
-	int posFirstNumber = 32767;
-	int base = 1;
-	int digit = 0;
-	int i = 0;
-	int j = 0;
-	int foundNumber = 0;
-	char myNum[10];
+	int target, len, nMinus, runOnce;
 
-	printf("s:%s\n", s);
+	target = len = nMinus = runOnce = 0;
 
 	while (s[len])
 	{
 		if (s[len] == '-')
-			nMinus++;
-		if ((s[len] >= '0') && (s[len] <= '9') && !foundNumber)
 		{
-			digitsExist++;
-			foundNumber = 1;
-
-			while (s[len])
-			{
-				myNum[j] = s[len];
-				len++;
-				j++;
-				base = base * 10;
-			}
-			printf("myNum:%s\n", myNum);
+			nMinus = ~nMinus;
+			len++;
 		}
+		if ((s[len] >= '0') && (s[len] <= '9'))
+			break;
+
 		len++;
 	}
 
-	base = base / 10;
-	printf("Before base:%d\n",base);
-	for (i=0; myNum[i]; i++)
+	runOnce = 0;
+	while ((s[len] >= '0') && (s[len] <= '9') && s[len])
 	{
-		target = (myNum[i] - '0') * base + target;
-		printf("target:%d\n",target);
-		base = base / 10;
+		if (runOnce == 0)
+		{
+			target = s[len] - '0';
+			runOnce = 888;
+		}
+		else
+			target = (10 * target) + s[len] - '0';
+		len++;
 	}
 
-
-	if (!(nMinus % 2))
+	if (nMinus == -1)
 		target = -target;
 
 	return (target);
