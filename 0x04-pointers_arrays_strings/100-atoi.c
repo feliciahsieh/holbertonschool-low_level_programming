@@ -10,7 +10,7 @@ int _atoi(char *s)
 
 	target = len = nMinus = runOnce = 0;
 
-	while (s[len])
+	while (s[len] != '\0')
 	{
 		if (s[len] == '-')
 			nMinus = ~nMinus;
@@ -20,19 +20,21 @@ int _atoi(char *s)
 		len++;
 	}
 
-	while ((s[len] >= '0') && (s[len] <= '9') && s[len])
+	while ((s[len] >= '0') && (s[len] <= '9') && (s[len] != '\0'))
 	{
 		if (runOnce == 0)
 		{
-			target = s[len] - '0';
+			target = (s[len] - '0') * (-1);
 			runOnce = 888;
 		}
 		else
-			target = (10 * target) + s[len] - '0';
+		{
+			target = (10 * target) - (s[len] - '0');
+		}
 		len++;
 	}
 
-	if (nMinus == -1)
+	if (nMinus == 0)
 		target = -target;
 
 	return (target);
