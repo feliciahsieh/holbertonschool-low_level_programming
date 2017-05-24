@@ -15,7 +15,6 @@ int _atoi(char *s)
 		if (s[len] == '-')
 		{
 			nMinus = ~nMinus;
-			len++;
 		}
 		if ((s[len] >= '0') && (s[len] <= '9'))
 			break;
@@ -32,7 +31,9 @@ int _atoi(char *s)
 			runOnce = 888;
 		}
 		else
+		{
 			target = (10 * target) + s[len] - '0';
+		}
 		len++;
 	}
 
