@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * leet - encode string into 1337
  * @s: string to encode

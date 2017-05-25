@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * cap_string - capitalize all words of a string
  * @a: string to camel case
@@ -10,7 +9,7 @@ char *cap_string(char *a)
 	int i;
 
 	if ((a[0] >= 'a') && (a[0] <= 'z'))
-		a[0] += 32;
+		a[0] -= 32;
 	for (i = 1; a[i]; i++)
 	{
 		switch (a[i - 1])
@@ -35,6 +34,5 @@ char *cap_string(char *a)
 			break;
 		}
 	}
-
 	return (a);
 }
