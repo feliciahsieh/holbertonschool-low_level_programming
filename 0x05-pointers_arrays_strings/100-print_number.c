@@ -6,21 +6,20 @@
  */
 void print_number(int n)
 {
-	int base;
 	int temp;
-	int isNegative = 0;
+	int isNegative = 1;
 	int divisor = 1;
 	int i;
 	int target;
 
-	temp = n;
-	if (temp < 0)
+	if (n >= 0)
 	{
-		temp = -temp;
 		n = -n;
-		isNegative = 1;
+		isNegative = 0;
 	}
-	for (base = 0; temp >= 10; base++)
+	temp = n;
+
+	while (temp <= -10)
 	{
 		temp = temp / 10;
 		divisor = divisor * 10;
@@ -32,9 +31,9 @@ void print_number(int n)
 	for (i = 0; divisor >= 10; i++)
 	{
 		target = n / divisor;
-		_putchar(target + '0');
-		n = n - (target * divisor);
+		_putchar((target * -1) + '0');
+		n = n % divisor;
 		divisor = divisor / 10;
 	}
-	_putchar(n + '0');
+	_putchar(-1 * n + '0');
 }
