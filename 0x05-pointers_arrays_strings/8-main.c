@@ -25,5 +25,6 @@ int main(void)
 	printf("%s", p);
 	printf("------------------------------------\n");
 	printf("%s", s);
+
 	return (0);
 }
