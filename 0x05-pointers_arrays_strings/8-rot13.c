@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * rot13 - encode a string into rot13
  * @s: input string to encode
@@ -7,15 +6,22 @@
  */
 char *rot13(char *s)
 {
-	int i;
+	int i, j;
+	char *enc, *dec;
+
+	enc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	dec = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	for (i = 0; s[i]; i++)
 	{
-		if (((s[i] >= 'A') && (s[i] <= 'M')) || ((s[i] >= 'a') && (s[i] <= 'm')))
-			s[i] += 13;
-		else
-		if (((s[i] >= 'N') && (s[i] <= 'Z')) || ((s[i] >= 'n') && (s[i] <= 'z')))
-			s[i] -= 13;
+		for (j = 0; enc[j]; j++)
+		{
+			if (s[i] == enc[j])
+			{
+				s[i] = dec[j];
+				break;
+			}
+		}
 	}
 	return (s);
 }
