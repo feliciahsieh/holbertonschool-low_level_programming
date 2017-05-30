@@ -22,10 +22,10 @@ char *_strstr(char *haystack, char *needle)
 					if (haystack[i + k] == needle[j + k])
 						found++;
 				}
-				if (found != k)
+				if (found < k)
 					found = 0;
 				else
-					found = 1;
+					found = 15;
 			}
 		}
 	}
