@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stddef.h>
 /**
  * _strchr - locates a character in a string
  * @s: string to search for character
@@ -8,22 +7,15 @@
  */
 char *_strchr(char *s, char c)
 {
-	int i, len;
-	char *ptr = NULL;
+	int i;
 
-	if (c != '\0')
+	for (i = 0; s[i]; i++)
 	{
-		for (len = 0; s[len] != '\0'; len++)
-			;
-
-		for (i = 0; i < len; i++)
+		if (s[i] == c)
 		{
-			if (s[i] == c)
-			{
-				ptr = (s + i);
-				break;
-			}
+			ptr = (s + i);
+			break;
 		}
 	}
-	return (ptr);
+	return ('\0');
 }
