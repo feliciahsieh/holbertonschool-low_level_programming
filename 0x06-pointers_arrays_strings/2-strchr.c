@@ -15,7 +15,10 @@ char *_strchr(char *s, char c)
 	for (i = 0; s[i]; i++)
 	{
 		if (s[i] == c)
-			ptr = (s + i - 1);
+		{
+			ptr = (s + i);
+			break;
+		}
 	}
 
 	return (ptr);
