@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stddef.h>
-#include <stdio.h>
 /**
  * _strchr - locates a character in a string
  * @s: string to search for character
@@ -22,7 +21,6 @@ char *_strchr(char *s, char c)
 			if (s[i] == c)
 			{
 				ptr = (s + i);
-				printf("i:%d  s[i]:%c\n",i,s[i]);
 				break;
 			}
 		}
