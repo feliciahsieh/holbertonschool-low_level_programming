@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * char *_strstr - locate a substring
  * @haystack: string to search
