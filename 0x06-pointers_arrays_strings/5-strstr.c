@@ -24,6 +24,8 @@ char *_strstr(char *haystack, char *needle)
 				}
 				if (found != k)
 					found = 0;
+				else
+					found = 1;
 			}
 		}
 	}
