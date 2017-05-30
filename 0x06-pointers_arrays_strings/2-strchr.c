@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stddef.h>
+#include <stdio.h>
 /**
  * _strchr - locates a character in a string
  * @s: string to search for character
@@ -9,20 +10,22 @@
 char *_strchr(char *s, char c)
 {
 	int i, len;
-	char *ptr;
+	char *ptr = NULL;
 
-	for (len = 0; s[len] != '\0'; len++)
-		;
-
-	ptr = NULL;
-	for (i = 0; i < len; i++)
+	if (c != '\0')
 	{
-		if (s[i] == c)
-		{
-			ptr = (s + i);
-			break;
-		}
-	}
+		for (len = 0; s[len] != '\0'; len++)
+			;
 
+		for (i = 0; i < len; i++)
+		{
+			if (s[i] == c)
+			{
+				ptr = (s + i);
+				printf("i:%d  s[i]:%c\n",i,s[i]);
+				break;
+			}
+		}
+	}		
 	return (ptr);
 }
