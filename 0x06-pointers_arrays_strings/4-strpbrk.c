@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * char *_strpbrk - searches a string for any of a set of bytes
  * @s: string to check
@@ -18,6 +17,7 @@ char *_strpbrk(char *s, char *accept)
 				goto outerloop;
 		}
 	}
+	return ('\0');
 outerloop:
 	return (s + i);
 }
