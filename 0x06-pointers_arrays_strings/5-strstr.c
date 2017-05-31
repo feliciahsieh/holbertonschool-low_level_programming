@@ -9,7 +9,14 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int i, j, k, found = 0;
+	int i, j, k, found = 0, lenH, lenN;
+
+	for (lenH = 0; haystack[lenH]; lenH++)
+		;
+	for (lenN = 0; needle[lenN]; lenN++)
+		;
+	if (lenH < lenN)
+		return (NULL);
 
 	for (i = 0; haystack[i] && !found; i++)
 	{
@@ -23,22 +30,15 @@ char *_strstr(char *haystack, char *needle)
 				for (k = 0; needle[k]; k++)
 				{
 					if (haystack[i + k] == needle[j + k])
-					{
 						found++;
 /*printf("LOOKING GOOD:found:%d\n",found);*/
-					}
-
 				}
 				if (found == k)
 				{
-/*printf("SUCCESS\n");*/
-					found = 15;
+					found = 15;/*printf("SUCCESS\n");*/
 					goto outerloop;
 				} else
-				{
-					found = 0;
-/*printf("FAILED.\n");*/
-				}
+					found = 0;/*printf("FAILED.\n");*/
 			} else
 				break;
 		}
