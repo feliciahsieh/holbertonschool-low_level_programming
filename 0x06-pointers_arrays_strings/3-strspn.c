@@ -1,4 +1,5 @@
 #include "holberton.h"
+/*#include <stdio.h>*/
 /**
  * _strspn - gets the length of a prefix substring. Returns
  * when string s does not contain any substring characters
@@ -18,8 +19,10 @@ unsigned int _strspn(char *s, char *accept)
 		}
 		for (j = 0; accept[j]; j++)
 		{
+			/*printf("i:%d j:%d s[i]:%c accept[j]:%c\n",i,j,s[i],accept[j]);*/
 			if (s[i] == accept[j])
 			{
+				/*printf("add because s[i]=accept[j]\n");*/
 				n++;
 			}
 		}
