@@ -33,7 +33,7 @@ char *_strstr(char *haystack, char *needle)
 				{
 /*printf("SUCCESS\n");*/
 					found = 15;
-					return (haystack + i);
+					goto outerloop;
 				} else
 				{
 					found = 0;
@@ -44,4 +44,6 @@ char *_strstr(char *haystack, char *needle)
 		}
 	}
 	return (NULL);
+outerloop:
+	return (haystack + i);
 }
