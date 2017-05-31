@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
  * _strspn - gets the length of a prefix substring. Returns
-when string s does not contain any substring characters
+ * when string s does not contain any substring characters
  * @s: string to check
  * @accept: substring to check
  * Return: number of bytes that contain matched chars
