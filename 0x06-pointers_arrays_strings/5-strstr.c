@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stddef.h>
 #include <stdio.h>
 /**
  * char *_strstr - locate a substring
@@ -14,32 +15,36 @@ char *_strstr(char *haystack, char *needle)
 	{
 		for (j = 0; needle[j] && !found; j++)
 		{
+/*			printf("i:%d  haystack[i]:%c  j:%d  needle[j]:%c\n",
+i,haystack[i],j,needle[j]); */
 			if (haystack[i] == needle[j])
 			{
-				/* printf("MATCHED 1 CHAR\n"); */
+				/*printf("MATCHED 1 CHAR\n");*/
 				found = 0;
 				for (k = 0; needle[k]; k++)
 				{
 					if (haystack[i + k] == needle[j + k])
 					{
 						found++;
-						/* printf("LOOKING GOOD:found:%d\n",found); */
+						/*printf("LOOKING GOOD:found:%d\n",found);*/
 					}
 
 				}
-				if (found < k)
+				if (found == k)
+				{
+                                        /*printf("SUCCESS\n");*/
+					found = 15;
+					goto outerloop;
+				} else
 				{
 					found = 0;
-					/* printf("FAILED\n"); */
-				}
-				else
-				{
-					found = 15;
-					/* printf("SUCCESS\n"); */
+/*printf("FAILED.\n");*/
 				}
 			} else
 				break;
 		}
 	}
-	return (haystack + i - 1);
+	return (NULL);
+outerloop:
+	return (haystack + i);
 }
