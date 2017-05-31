@@ -9,41 +9,21 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int i, j, k, found = 0, lenH, lenN;
+	int i, j;
 
-	for (lenH = 0; haystack[lenH]; lenH++)
-		;
-	for (lenN = 0; needle[lenN]; lenN++)
-		;
-	if (lenH < lenN)
-		return (NULL);
-
-	for (i = 0; haystack[i] && !found; i++)
+	for (i = 0; haystack[i]; i++)
 	{
-		for (j = 0; needle[j] && !found; j++)
+		for (j = 0; needle[j]; j++)
 		{
-/* printf("i:%d hays[i]:%c  j:%d  nee[j]:%c\n",i,haystack[i],j,needle[j]); */
-			if (haystack[i] == needle[j])
-			{
-/*printf("MATCHED 1 CHAR\n");*/
-				found = 0;
-				for (k = 0; needle[k]; k++)
-				{
-					if (haystack[i + k] == needle[j + k])
-						found++;
-/*printf("LOOKING GOOD:found:%d\n",found);*/
-				}
-				if (found == k)
-				{
-					found = 15;/*printf("SUCCESS\n");*/
-					goto outerloop;
-				} else
-					found = 0;/*printf("FAILED.\n");*/
-			} else
+/*printf("i:%d %c  j:%d :%c\n",i,haystack[i],j,needle[j]);*/
+			if (haystack[i + j] != needle[j])
 				break;
 		}
+		if (needle[j] == '\0')
+			return (haystack + i);
 	}
+	if (haystack[i] == '\0')
+		return (NULL);
+
 	return (NULL);
-outerloop:
-	return (haystack + i);
 }
