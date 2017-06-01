@@ -3,7 +3,7 @@
  * _pow_recursion - calculate x^y
  * @x: base of power function
  * @y: exponent of pwer function
- * Return: result of x^y
+ * Return: result of x^y.
  */
 int _pow_recursion(int x, int y)
 {
