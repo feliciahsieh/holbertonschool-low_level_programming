@@ -1,40 +1,41 @@
 #include "holberton.h"
 /**
- * find_len - find length of string
+ * findLen - find length of string
  * @s: string to evaluate length
  * Return: length of string
  */
-int find_len(char *s)
+int findLen(char *s)
 {
 	if (s[0] == '\0')
 		return (0);
 	else
-		return (find_len(s + 1) + 1);
+		return (findLen(s + 1) + 1);
 }
 /**
  * calcPal - calculate palindrome recursively
  * @start: char pointer to beginning of string
  * @end: char pointer to end of string
- * @count: number of times to check for a match
  * Return: length of string
  */
-int calcPal(char *start, char *end, int count)
+int calcPal(char *start, char *end)
 {
 	int result = 0;
 
-	if (count <= 1)
+	if (start == end) /* reached middle of odd string */
 		return (1);
-
-	if (start[0] == end[0])
+	else if ((start + 1) == end) /* even string */
 	{
-		start = start + 1;
-		end = end - 1;
-		count = count - 1;
-		result = calcPal(start, end, count);
+		if (start[0] == end[0])
+			return (1);
+		else
+			return (0);
 	}
 	else
 	{
-		result = 0;
+		if (start[0] == end[0])
+			result = calcPal(start + 1, end - 1);
+		else
+			return (0);
 	}
 	return (result);
 }
@@ -46,21 +47,17 @@ int calcPal(char *start, char *end, int count)
  */
 int is_palindrome(char *s)
 {
-	int len = 0;
 	int result = 0;
+	int len = 0;
 	char *strEnd;
 
-	if (s[0] == '\0')
-		return (0);
+	len = findLen(s);
+	strEnd = s + len;
 
-	len = find_len(s);
-	if (len == 1)
+	if (len <= 1)
 		result = 1;
-	else if (len > 2)
-	{
-		strEnd = (s + len - 1);
+	else
+		result = calcPal(s, strEnd - 1);
 
-		result = calcPal(s, strEnd, (len - 1) / 2);
-	}
 	return (result);
 }
