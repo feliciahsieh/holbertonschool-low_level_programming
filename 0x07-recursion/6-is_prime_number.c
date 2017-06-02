@@ -3,7 +3,7 @@
  * calcPrimeNumber - calc prime number using recursion
  * @n: number to check if it is prime
  * @div: divisor to check
- * Return: 1 if Prime; 0 if not
+ * Return: 1 if Prime. 0 if not
  */
 int calcPrimeNumber(int n, int div)
 {
@@ -24,7 +24,7 @@ int calcPrimeNumber(int n, int div)
 /**
  * is_prime_number - find if n is a prime number
  * @n: number to check
- * Return: 1 if n is Prime; 0 if not
+ * Return: 1 if n is Prime. 0 if not
  */
 int is_prime_number(int n)
 {
