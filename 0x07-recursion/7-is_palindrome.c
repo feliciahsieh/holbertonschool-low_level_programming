@@ -54,7 +54,9 @@ int is_palindrome(char *s)
 		return (0);
 
 	len = find_len(s);
-	if (len > 2)
+	if (len == 1)
+		result = 1;
+	else if (len > 2)
 	{
 		strEnd = (s + len - 1);
 
