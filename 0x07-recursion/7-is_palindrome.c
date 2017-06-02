@@ -23,14 +23,14 @@ int calcPal(char *start, char *end)
 
 	if (start == end) /* reached middle of odd string */
 		return (1);
-	else if ((start + 1) == end) /* even string */
+	else if ((start + 1) == end) /* even string and next to last calc */
 	{
 		if (start[0] == end[0])
 			return (1);
 		else
 			return (0);
 	}
-	else
+	else /* odd string */
 	{
 		if (start[0] == end[0])
 			result = calcPal(start + 1, end - 1);
@@ -57,7 +57,7 @@ int is_palindrome(char *s)
 	if (len < 1)
 		result = 1;
 	else if (len == 1)
-		result = 0;
+		result = 1;
 	else
 		result = calcPal(s, strEnd - 1);
 
