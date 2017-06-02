@@ -28,9 +28,9 @@ int is_prime_number(int n)
 {
 	int result = 0;
 
-	if (n <= 0)         /* error */
+	if (n <= 0)
 		result = 0;
-	else if (n == 1)    /* error */
+	else if (n == 1)
 		result = 0;
 	else
 		result = calcPrimeNumber(n, 2);
