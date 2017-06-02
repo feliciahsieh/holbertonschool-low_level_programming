@@ -57,7 +57,7 @@ int is_palindrome(char *s)
 	if (len < 1)
 		result = 1;
 	else if (len == 1)
-		result = 1;
+		result = 0;
 	else
 		result = calcPal(s, strEnd - 1);
 
