@@ -54,10 +54,11 @@ int is_palindrome(char *s)
 		return (0);
 
 	len = find_len(s);
+	if (len > 2)
+	{
+		strEnd = (s + len - 1);
 
-	strEnd = (s + len - 1);
-
-	result = calcPal(s, strEnd, (len - 1) / 2);
-
+		result = calcPal(s, strEnd, (len - 1) / 2);
+	}
 	return (result);
 }
