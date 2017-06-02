@@ -26,10 +26,13 @@ int calcPrimeNumber(int n, int div)
  */
 int is_prime_number(int n)
 {
+	int result = 0;
+
 	if (n <= 0)         /* error */
-		return (0);
+		result = 0;
 	else if (n == 1)    /* error */
-		return (0);
+		result = 0;
 	else
-		return (calcPrimeNumber(n, 2));
+		result = calcPrimeNumber(n, 2);
+	return (result);
 }
