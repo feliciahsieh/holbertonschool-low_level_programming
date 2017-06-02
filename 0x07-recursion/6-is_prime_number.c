@@ -7,6 +7,8 @@
  */
 int calcPrimeNumber(int n, int div)
 {
+	int result = -50;
+
 	if (n == div)
 		return (1);
 
@@ -17,7 +19,7 @@ int calcPrimeNumber(int n, int div)
 	else
 		return (calcPrimeNumber(n, div + 1));
 
-	return (-50); /* error */
+	return (result);
 }
 /**
  * is_prime_number - find if n is a prime number
