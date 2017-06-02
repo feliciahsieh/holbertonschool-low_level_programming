@@ -10,7 +10,6 @@ int calcPrimeNumber(int n, int div)
 	if (n == div)
 		return (1);
 
-	/*printf("n:%d div:%d  nMODdiv:%d\n",n, div, n%div);*/
 	if ((n % div) == 0)
 	{
 		return (0);
