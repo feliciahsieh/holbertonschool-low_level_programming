@@ -48,7 +48,8 @@ char *str_concat(char *s1, char *s2)
 				ptr[i] = s1[i];
 		} else
 		{
-			len = findLen(s1), len2 = findLen(s2);
+			len = findLen(s1);
+			len2 = findLen(s2);
 
 			ptr = (char *)malloc((len + len2 + 1) * sizeof(char));
 			if (ptr == NULL)
@@ -59,6 +60,5 @@ char *str_concat(char *s1, char *s2)
 				ptr[len + i] = s2[i];
 		}
 	}
-
 	return (ptr);
 }
