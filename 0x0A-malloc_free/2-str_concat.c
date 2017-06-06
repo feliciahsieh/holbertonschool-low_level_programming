@@ -25,9 +25,9 @@ char *str_concat(char *s1, char *s2)
 	char *ptr = NULL;
 	int i, len = 0, len2 = 0;
 
-	if (s1 == NULL)
+	if (!s1[0])
 	{
-		if (s2 == NULL)
+		if (!s2[0])
 			return (NULL);
 
 		len = findLen(s2);
@@ -38,7 +38,7 @@ char *str_concat(char *s1, char *s2)
 			ptr[i] = s2[i];
 	} else
 	{
-		if (s2 == NULL)
+		if (!s2[0])
 		{
 			len = findLen(s1);
 			ptr = (char *)malloc((len + 1) * sizeof(char));
@@ -48,8 +48,7 @@ char *str_concat(char *s1, char *s2)
 				ptr[i] = s1[i];
 		} else
 		{
-			len = findLen(s1);
-			len2 = findLen(s2);
+			len = findLen(s1), len2 = findLen(s2);
 
 			ptr = (char *)malloc((len + len2 + 1) * sizeof(char));
 			if (ptr == NULL)
