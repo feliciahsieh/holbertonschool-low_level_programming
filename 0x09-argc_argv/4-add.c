@@ -29,7 +29,8 @@ int isNumber(char number[])
  */
 int main(int argc, char *argv[])
 {
-	int i = 1, result = 0, add1;
+	int i = 1, add1;
+	long result = 0;
 
 	if (argc < 1)
 	{
@@ -51,7 +52,7 @@ int main(int argc, char *argv[])
 			i++;
 		}
 		if (i == argc)
-			printf("%d\n", result);
+			printf("%ld\n", result);
 	}
 	return (0);
 }
