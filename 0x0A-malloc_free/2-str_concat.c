@@ -32,6 +32,8 @@ char *str_concat(char *s1, char *s2)
 
 		len = findLen(s2);
 		ptr = (char *)malloc((len + 1) * sizeof(char));
+		if (ptr == NULL)
+			return (NULL);
 		for (i = 0; i <= len; i++)
 			ptr[i] = s2[i];
 	} else
@@ -40,6 +42,8 @@ char *str_concat(char *s1, char *s2)
 		{
 			len = findLen(s1);
 			ptr = (char *)malloc((len + 1) * sizeof(char));
+			if (ptr == NULL)
+				return (NULL);
 			for (i = 0; i <= len; i++)
 				ptr[i] = s1[i];
 		} else
@@ -48,6 +52,8 @@ char *str_concat(char *s1, char *s2)
 			len2 = findLen(s2);
 
 			ptr = (char *)malloc((len + len2 + 1) * sizeof(char));
+			if (ptr == NULL)
+				return (NULL);
 			for (i = 0; i < len; i++)
 				ptr[i] = s1[i];
 			for (i = 0; i <= len2; i++)
