@@ -5,7 +5,7 @@
  * free_grid - frees a 2 dimensional grid by alloc_grid()
  * @grid: 2D array of integers
  * @height: height of grid
- * Return: Always 0.
+ * Return: none
  */
 void free_grid(int **grid, int height)
 {
