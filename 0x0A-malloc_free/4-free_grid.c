@@ -1,6 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
-/** 
+/**
  * free_grid - Frees up grid
  * @grid: The grid in question
  * @height: Height of the grid
