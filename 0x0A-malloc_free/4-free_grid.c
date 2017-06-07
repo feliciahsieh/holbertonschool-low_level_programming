@@ -1,9 +1,9 @@
 #include "holberton.h"
 #include <stdlib.h>
 /**
- * free_grid - Frees up grid
- * @grid: The grid in question
- * @height: Height of the grid
+ * free_grid - free memory of 2-d array
+ * @grid: 2-d array
+ * @height: the height of 2-d array
  *
  */
 void free_grid(int **grid, int height)
