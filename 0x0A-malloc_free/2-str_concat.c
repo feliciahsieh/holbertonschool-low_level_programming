@@ -1,67 +1,34 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "holberton.h"
 /**
- * findLen - find length of string
- * @s: string to find length
- * Return: number of chars
- */
-int findLen(char *s)
-{
-	int i, l = 0;
-
-	for (i = 0; s[i]; i++)
-		l++;
-	return (l);
-}
-/**
  * str_concat - concatenates two strings
- * @s1: string1 to concat
- * @s2: string2 to concat
+ * @s1: string1 to concat first
+ * @s2: string2 to concat second
  * Return: ptr to concatenated strings
  */
 char *str_concat(char *s1, char *s2)
 {
 	char *ptr = NULL;
-	int i, len = 0, len2 = 0;
+	int len1 = 0, len2 = 0, i, j;
 
-	if (!s1[0])
-	{
-		if (!s2[0])
-		{
-			*ptr = '\0';
-			return (ptr);
-		}
+	for (i = 0; s1[i]; i++)
+		len1++;
 
-		len = findLen(s2);
-		ptr = (char *)malloc((len + 1) * sizeof(char));
-		if (ptr == NULL)
-			return (NULL);
-		for (i = 0; i <= len; i++)
-			ptr[i] = s2[i];
-	} else
-	{
-		if (!s2[0])
-		{
-			len = findLen(s1);
-			ptr = (char *)malloc((len + 1) * sizeof(char));
-			if (ptr == NULL)
-				return (NULL);
-			for (i = 0; i <= len; i++)
-				ptr[i] = s1[i];
-		} else
-		{
-			len = findLen(s1);
-			len2 = findLen(s2);
+	for (j = 0; s2[j]; j++)
+		len2++;
 
-			ptr = (char *)malloc((len + len2 + 1) * sizeof(char));
-			if (ptr == NULL)
-				return (NULL);
-			for (i = 0; i < len; i++)
-				ptr[i] = s1[i];
-			for (i = 0; i <= len2; i++)
-				ptr[len + i] = s2[i];
-		}
-	}
+	ptr = malloc((len1 + len2 + 1) * sizeof(char));
+	if (ptr == NULL)
+		return (ptr);
+
+	for (i = 0; s1[i]; i++)
+		ptr[i] = s1[i];
+	ptr[i] = '\0';
+
+	if (len2 > 0)
+		for (j = 0; s2[j]; j++)
+			ptr[i + j] = s2[j];
+	ptr[i + j + 1] = '\0';
+
 	return (ptr);
 }
