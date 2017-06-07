@@ -28,7 +28,7 @@ char *str_concat(char *s1, char *s2)
 	if (!s1[0])
 	{
 		if (!s2[0])
-			return (NULL);
+			return (ptr);
 
 		len = findLen(s2);
 		ptr = (char *)malloc((len + 1) * sizeof(char));
