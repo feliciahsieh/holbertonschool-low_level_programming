@@ -58,43 +58,35 @@ char **strtow(char *str)
 	char *temp = "";
 	int nWords = 0, i, l = 0, x = 0;
 
-	printf("%s\n", str);
-
 	if ((str == NULL) || (str == temp))
 		return (NULL);
-
 	nWords = countWords(str);
-	printf("nWords:%d\n", nWords);
-
-	ptr = (char **)malloc(sizeof(char *));
+	ptr = malloc(sizeof(char *));
 	if (ptr == NULL)
 		return (NULL);
-
 	for (i = 0; str[i]; i++)
 	{
 		if (str[i] != ' ')
 		{
-			printf("at index:%d\n", i);
 			l = findWordLeng(str, i);
 			printf("len:%d\n", l);
 			if (x < nWords)
 			{
 				ptr[x] = malloc((l + 1) * sizeof(char));
+
 				if (ptr[x] == NULL)
 				{
-					while(x >= 0)
-						free (ptr[--x]);
+					printf("freeing\n");
+					while (x >= 0)
+						free(ptr[--x]);
 					free(ptr);
+					return (NULL);
 				}
+				printf("x:%d\n", x);
 				x++;
 			}
 			i = i + l;
 		}
-
 	}
-/*
-12345678901234567890123456789012345678901234
-      Holberton School         #cisfun      
-*/
 	return (ptr);
 }
