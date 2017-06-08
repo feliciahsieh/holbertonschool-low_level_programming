@@ -55,7 +55,7 @@ int countWords(char *s)
 char **strtow(char *str)
 {
 	char **ptr = NULL, *temp = "";
-	int nWords = 0, i, j, l = 0, x = 0;
+	int nWords = 0, i, j, l = 0, x = 0, y = 0;
 
 	if ((str == NULL) || (str == temp))
 		return (NULL);
@@ -87,15 +87,17 @@ char **strtow(char *str)
 		}
 	}
 
-	while(x < nWords)
+	j = 0;
+	printf("x:%d nWords:%d\n",x, nWords);
+	while(--x)
 	{
-		for (j = 0; str[] && (str[j] == ' '); j++)
+		for (; str[j] && (str[j] == ' '); j++)
 			;
+		printf("j:%d", j);
 		y = 0;
 		for (i = j; str[i] && (str[i] != ' '); i++)
 			ptr[nWords - x][y++] = str[i];
 		ptr[nWords - x][y] = '\0';
-		x++;
 	}
 	return (ptr);
 }
