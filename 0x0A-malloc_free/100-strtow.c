@@ -59,8 +59,7 @@ char **strtow(char *str)
 
 	if ((str == NULL) || (str == temp))
 		return (NULL);
-	nWords = countWords(str);
-	ptr = malloc((nWords + 1) * sizeof(char *));
+	nWords = countWords(str), ptr = malloc((nWords + 1) * sizeof(char *));
 	ptr[nWords] = NULL;
 	if (ptr == NULL)
 		return (NULL);
@@ -76,18 +75,15 @@ char **strtow(char *str)
 				{
 					while (x >= 0)
 						free(ptr[--x]);
-					free(ptr);
-					return (NULL);
+					free(ptr), return (NULL);
 				}
 				x++;
 			}
 			i = i + l;
 		}
 	}
-
-	j = 0;
-	x = 0;
-	while(x < nWords)
+	j = 0, x = 0;
+	while (x < nWords)
 	{
 		for (; str[j] && (str[j] == ' '); j++)
 			;
@@ -95,8 +91,7 @@ char **strtow(char *str)
 		for (i = j; str[i] && (str[i] != ' '); i++)
 			ptr[x][y++] = str[i];
 		ptr[x][y] = '\0';
-		j = j + y;
-		x++;
+		j = j + y, x++;
 	}
 	return (ptr);
 }
