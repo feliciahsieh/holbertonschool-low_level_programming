@@ -54,14 +54,14 @@ int countWords(char *s)
  */
 char **strtow(char *str)
 {
-	char **ptr = NULL;
-	char *temp = "";
-	int nWords = 0, i, l = 0, x = 0;
+	char **ptr = NULL, *temp = "";
+	int nWords = 0, i, j, l = 0, x = 0;
 
 	if ((str == NULL) || (str == temp))
 		return (NULL);
 	nWords = countWords(str);
-	ptr = malloc(sizeof(char *));
+	ptr = malloc((nWords + 1) * sizeof(char *));
+	ptr[nWords] = NULL;
 	if (ptr == NULL)
 		return (NULL);
 	for (i = 0; str[i]; i++)
@@ -73,10 +73,8 @@ char **strtow(char *str)
 			if (x < nWords)
 			{
 				ptr[x] = malloc((l + 1) * sizeof(char));
-
 				if (ptr[x] == NULL)
 				{
-					printf("freeing\n");
 					while (x >= 0)
 						free(ptr[--x]);
 					free(ptr);
@@ -87,6 +85,17 @@ char **strtow(char *str)
 			}
 			i = i + l;
 		}
+	}
+
+	while(x < nWords)
+	{
+		for (j = 0; str[] && (str[j] == ' '); j++)
+			;
+		y = 0;
+		for (i = j; str[i] && (str[i] != ' '); i++)
+			ptr[nWords - x][y++] = str[i];
+		ptr[nWords - x][y] = '\0';
+		x++;
 	}
 	return (ptr);
 }
