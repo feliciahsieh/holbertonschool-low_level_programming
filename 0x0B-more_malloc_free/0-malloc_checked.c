@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
 #include "holberton.h"
 /**
  * malloc_checked - allocate memory using malloc
@@ -9,11 +11,11 @@ void *malloc_checked(unsigned int b)
 {
 	void *ptr;
 
-	ptr = malloc(sizeof(b));
+	ptr = malloc(b * sizeof(ptr));
 	if (ptr == NULL)
-		return (NULL);
-
-	printf("Read b:%d\n", b);
+	{
+		exit(98);
+	}
 
 	return (ptr);
 }
