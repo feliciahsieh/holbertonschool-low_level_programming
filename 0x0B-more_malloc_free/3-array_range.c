@@ -4,7 +4,7 @@
 /**
  * array_range - create array of int from min to max values
  * @min: minimum number for initialization
- * @mix: maximum number for initialization
+ * @max: maximum number for initialization
  * Return: pointer to array of integers
  */
 int *array_range(int min, int max)
