@@ -54,15 +54,15 @@ int countWords(char *s)
  */
 char **strtow(char *str)
 {
-	char **ptr = NULL, *temp = "";
+	char **ptr = NULL;
 	int nWords = 0, i, j, l = 0, x = 0, y = 0;
 
-	if ((str == NULL) || (str == temp))
+	if ((str == NULL) || (*str == '\0'))
 		return (NULL);
 	nWords = countWords(str), ptr = malloc((nWords + 1) * sizeof(char *));
-	ptr[nWords] = NULL;
 	if (ptr == NULL)
 		return (NULL);
+	ptr[nWords] = NULL;
 	for (i = 0; str[i]; i++)
 	{
 		if (str[i] != ' ')
