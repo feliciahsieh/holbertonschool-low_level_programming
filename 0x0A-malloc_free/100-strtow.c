@@ -1,5 +1,28 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "holberton.h"
+/**
+ * findWordLeng - find length of first word after index
+ * @s: string to evaluate
+ * @index: index to start looking for word
+ * Return: find length of word
+ */
+int findWordLeng(char *s, int index)
+{
+	int i, len = 0, found = 0;
+
+	for (i = index; s[i]; i++)
+	{
+		if (s[i] != ' ')
+		{
+			len++;
+			found = 1;
+		}
+		else if (s[i] == ' ' && found)
+			break;
+	}
+	return (len);
+}
 /**
  * countWords - count number of words in string
  * @s: string to evaluate
@@ -33,7 +56,7 @@ char **strtow(char *str)
 {
 	char **ptr = NULL;
 	char *temp = "";
-	int nWords = 0;
+	int nWords = 0, i, l = 0, x = 0;
 
 	printf("%s\n", str);
 
@@ -42,5 +65,36 @@ char **strtow(char *str)
 
 	nWords = countWords(str);
 	printf("nWords:%d\n", nWords);
+
+	ptr = (char **)malloc(sizeof(char *));
+	if (ptr == NULL)
+		return (NULL);
+
+	for (i = 0; str[i]; i++)
+	{
+		if (str[i] != ' ')
+		{
+			printf("at index:%d\n", i);
+			l = findWordLeng(str, i);
+			printf("len:%d\n", l);
+			if (x < nWords)
+			{
+				ptr[x] = malloc((l + 1) * sizeof(char));
+				if (ptr[x] == NULL)
+				{
+					while(x >= 0)
+						free (ptr[--x]);
+					free(ptr);
+				}
+				x++;
+			}
+			i = i + l;
+		}
+
+	}
+/*
+12345678901234567890123456789012345678901234
+      Holberton School         #cisfun      
+*/
 	return (ptr);
 }
