@@ -69,7 +69,6 @@ char **strtow(char *str)
 		if (str[i] != ' ')
 		{
 			l = findWordLeng(str, i);
-			printf("len:%d\n", l);
 			if (x < nWords)
 			{
 				ptr[x] = malloc((l + 1) * sizeof(char));
@@ -80,7 +79,6 @@ char **strtow(char *str)
 					free(ptr);
 					return (NULL);
 				}
-				printf("x:%d\n", x);
 				x++;
 			}
 			i = i + l;
@@ -88,16 +86,17 @@ char **strtow(char *str)
 	}
 
 	j = 0;
-	printf("x:%d nWords:%d\n",x, nWords);
-	while(--x)
+	x = 0;
+	while(x < nWords)
 	{
 		for (; str[j] && (str[j] == ' '); j++)
 			;
-		printf("j:%d", j);
 		y = 0;
 		for (i = j; str[i] && (str[i] != ' '); i++)
-			ptr[nWords - x][y++] = str[i];
-		ptr[nWords - x][y] = '\0';
+			ptr[x][y++] = str[i];
+		ptr[x][y] = '\0';
+		j = j + y;
+		x++;
 	}
 	return (ptr);
 }
