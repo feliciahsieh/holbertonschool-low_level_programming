@@ -5,7 +5,7 @@
  * array_range - create array of int from min to max values
  * @min: minimum number for initialization
  * @max: maximum number for initialization
- * Return: pointer to array of integers
+ * Return: pointer to integer array
  */
 int *array_range(int min, int max)
 {
@@ -13,14 +13,14 @@ int *array_range(int min, int max)
 	int i;
 
 	if (min > max)
-		return (ptr);
+		return (NULL);
 
 	ptr = malloc((max - min + 1) * sizeof(ptr));
 	if (ptr == NULL)
 		return (NULL);
 
-	for (i = 0; i < (max - min) + 1; i++)
-		ptr[i] = min + i;
+	for (i = 0; min <= max; min++, i++)
+		ptr[i] = min;
 
 	return (ptr);
 }
