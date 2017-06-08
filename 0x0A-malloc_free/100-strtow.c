@@ -75,7 +75,8 @@ char **strtow(char *str)
 				{
 					while (x >= 0)
 						free(ptr[--x]);
-					free(ptr), return (NULL);
+					free(ptr);
+					return (NULL);
 				}
 				x++;
 			}
@@ -85,8 +86,7 @@ char **strtow(char *str)
 	j = 0, x = 0;
 	while (x < nWords)
 	{
-		for (; str[j] && (str[j] == ' '); j++)
-			;
+		for (; str[j] && (str[j] == ' '); j++) ;
 		y = 0;
 		for (i = j; str[i] && (str[i] != ' '); i++)
 			ptr[x][y++] = str[i];
