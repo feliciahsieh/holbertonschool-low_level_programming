@@ -6,7 +6,7 @@
  * @ptr: ptr to old allocated malloc call
  * @old_size: bytes of allocated 0
  * @new_size:
- * Return: Always 0.
+ * Return: void pointer of new memory
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
