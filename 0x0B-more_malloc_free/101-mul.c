@@ -2,7 +2,12 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include "holberton.h"
-
+/**
+ * main - multiply two positive numbers
+ * @argc: count of arguments from user
+ * @argv: string values of arguments from user
+ * Return: Always 0
+ */
 int main(int argc, char *argv[])
 {
 	long int a, n1, n2, i;
