@@ -1,7 +1,12 @@
 #ifndef DOG_FN
 #define DOG_FN
 /**
- * dog - Create dog structure
+ * struct dog - dog
+ * @name: name of dog
+ * @owner: name of owner
+ * @age: age of dog
+ *
+ * Description: data structure for each dog
  */
 struct dog
 {
