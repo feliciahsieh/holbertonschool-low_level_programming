@@ -28,7 +28,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (age > 0.0)
 		pup->age = age;
 	else
-		pup->age = 0.0;
+		return (NULL);
 
 	for (i = 0; owner[i]; i++)
 		;
