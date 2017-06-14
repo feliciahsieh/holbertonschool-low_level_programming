@@ -1,15 +1,16 @@
+#ifndef FN_PTR
+#define FN_PTR
 #include <stdio.h>
-#include <stdlib.h>
 #include "function_pointers.h"
 /**
- * print_name - print a name
- * @name: string name to print
- * @f: function to use to print
+ * print_name - printaname
+ * @name: sks
+ * @f: djf
+ * Return: none.
  */
 void print_name(char *name, void (*f)(char *))
 {
 	if (name && f)
 		f(name);
-	else
-		exit(EXIT_FAILURE);
 }
+#endif
