@@ -4,7 +4,7 @@
  * print_name - print a name
  * @name: string name to print
  * @f: function to use to print
- * Return: None
+ * Return: void
  */
 void print_name(char *name, void (*f)(char *))
 {
