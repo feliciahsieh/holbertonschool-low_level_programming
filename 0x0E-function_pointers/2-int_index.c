@@ -12,7 +12,7 @@ int int_index(int *array, int size, int (*cmp)(int))
 {
 	int i, ndx, result = NOTFND;
 
-	if (size <= 0)
+	if ((size <= 0) || !array || !cmp)
 		result = NOTFND;
 	else
 	{
