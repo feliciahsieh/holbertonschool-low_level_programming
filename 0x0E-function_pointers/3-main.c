@@ -19,7 +19,10 @@ int main(int argc, char *argv[])
 	}
 	operand1 = atoi(argv[1]);
 	operand2 = atoi(argv[3]);
-	argv[2][1] = '\0';
+/*	printf("argv2:%s\n", argv[2]);
+	if (argv[2] == 39)
+		argv[2] == '\0';
+		printf("argv2after:%s\n", argv[2]); */
 	operation = argv[2][0];
 	switch (operation)
 	{
