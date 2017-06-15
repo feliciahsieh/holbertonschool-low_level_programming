@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
 	}
 	operand1 = atoi(argv[1]);
 	operand2 = atoi(argv[3]);
+	argv[2][1] = '\0';
 	operation = argv[2][0];
 	switch (operation)
 	{
