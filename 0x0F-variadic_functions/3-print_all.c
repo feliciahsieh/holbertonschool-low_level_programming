@@ -7,41 +7,42 @@
 
 /**
  * pr_char - prints characters
- * @a: adsf
+ * @v: variatic list
  * Return: none
 */
-void pr_char(int n, char a)
+void pr_char(va_list v)
 {
-	printf("%c", a);
+	printf("%c", va_arg(v, unsigned int));
 }
+
 /**
  * pr_int - prints integer
- * @a: asd
+ * @v: variatic list
  * Return: none
  */
-void pr_int(int n, int a)
+void pr_int(va_list v)
 {
-	printf("%d", a);
+	printf("%d", va_arg(v, int));
 }
 
 /**
  * pr_float - prints float
- * @a:asf
+ * @v: variatic list
  * Return: none
  */
-void pr_float(int n, float a)
+void pr_float(va_list v)
 {
-	printf("%f", a);
+	printf("%f", va_arg(v, double));
 }
 
 /**
  * pr_string - prints string
- * @a: sdsf
+ * @v: variatic list
  * Return: none
  */
-void pr_string(int n, char *a)
+void pr_string(va_list v)
 {
-	printf("%s", a);
+	printf("%s", va_arg(v, char *));
 }
 
 /**
@@ -52,7 +53,7 @@ void pr_string(int n, char *a)
  */
 void print_all(const char * const format, ...)
 { /* 2 while loops, 2 if, 9 var */
-	myPrint_t pp[5] = {
+	myPrint_t p[5] = {
 		{"c", pr_char},
 		{"i", pr_int},
 		{"f", pr_float},
@@ -62,16 +63,14 @@ void print_all(const char * const format, ...)
 
 	va_list ap;
 	unsigned int i = 0;
-	size_t len = 0;
-	char *value;
 
 	va_start(ap, format);
 
 	i = 0;
-	while (i < len)
+	while (format && format[i])
 	{
-		value = va_arg(ap, char *);
-		printf("%d:\n", i);
+		if (format[i] == *p[i].prType)
+			p[i].f(ap);
 		i++;
 	}
 

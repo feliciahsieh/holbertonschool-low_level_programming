@@ -3,10 +3,9 @@
 
 typedef struct myPrint
 {
-	char *myPrintType;
-	void (*f)(...);
-};
-typedef struct myPrint myPrint_t;
+	char *prType;
+	void (*f)();
+} myPrint_t;
 
 int _putchar(char c);
 int sum_them_all(const unsigned int n, ...);
