@@ -3,7 +3,7 @@
 
 typedef struct myPrint
 {
-	char *prType;
+	char prType;
 	void (*f)();
 } myPrint_t;
 

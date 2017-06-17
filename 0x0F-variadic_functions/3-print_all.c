@@ -12,7 +12,7 @@
 */
 void pr_char(va_list v)
 {
-	printf("%c", va_arg(v, unsigned int));
+	printf("%c", va_arg(v, int));
 }
 
 /**
@@ -42,7 +42,13 @@ void pr_float(va_list v)
  */
 void pr_string(va_list v)
 {
-	printf("%s", va_arg(v, char *));
+	char *str;
+
+	str = va_arg(v, char*);
+	if (!str)
+		printf("%s", va_arg(v, char *));
+	else
+		printf(NIL_STR);
 }
 
 /**
@@ -54,11 +60,11 @@ void pr_string(va_list v)
 void print_all(const char * const format, ...)
 { /* 2 while loops, 2 if, 9 var */
 	myPrint_t p[5] = {
-		{"c", pr_char},
-		{"i", pr_int},
-		{"f", pr_float},
-		{"s", pr_string},
-		{NULL, NULL}
+		{'c', pr_char},
+		{'i', pr_int},
+		{'f', pr_float},
+		{'s', pr_string},
+		{'\0', NULL}
 	};
 
 	va_list ap;
@@ -69,8 +75,14 @@ void print_all(const char * const format, ...)
 	i = 0;
 	while (format && format[i])
 	{
-		if (format[i] == *p[i].prType)
+
+		if (format[i] == p[i].prType)
+		{
+			/*printf("Matched:%c\n", format[i]);*/
+			if (i != 0)
+				printf(", ");
 			p[i].f(ap);
+		}
 		i++;
 	}
 
