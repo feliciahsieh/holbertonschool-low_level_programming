@@ -47,8 +47,9 @@ void pr_string(va_list v)
 	str = va_arg(v, char*);
 	if (!str)
 		printf("%s", va_arg(v, char *));
-	else
+	else 
 		printf(NIL_STR);
+/*REMOVE ELSE*/
 }
 
 /**
@@ -82,6 +83,8 @@ void print_all(const char * const format, ...)
 			if (i != 0)
 				printf(", ");
 			p[i].f(ap);
+/*too many if statements. REMOVE */
+/* double loop for both p and format */
 		}
 		i++;
 	}
