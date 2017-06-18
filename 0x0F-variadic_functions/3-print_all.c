@@ -78,10 +78,8 @@ void print_all(const char * const format, ...)
 		j = 0;
 		while (p[j].prType)
 		{
-			/*printf("j:%d  format:%c  p[j].prType:%c\n", j, format[i], p[j].prType)*/;
 			if (format[i] == p[j].prType)
 			{
-				/*printf("Matched:%c\n", format[i]);*/
 				printf("%s", separatorStr);
 				separatorStr = ", ";
 				p[j].f(ap);
