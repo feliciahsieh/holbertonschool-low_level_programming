@@ -44,11 +44,15 @@ void pr_string(va_list v)
 {
 	char *str;
 
-	str = va_arg(v, char*);
-	if (!str)
-		printf("%s", va_arg(v, char *));
-	else 
+	str = va_arg(v, char *);
+	if (str)
+	{
+		printf("%s", str);
+	}
+	else
+	{
 		printf(NIL_STR);
+	}
 /*REMOVE ELSE*/
 }
 
@@ -69,22 +73,27 @@ void print_all(const char * const format, ...)
 	};
 
 	va_list ap;
-	unsigned int i = 0;
+	unsigned int i = 0, j = 0;
 
 	va_start(ap, format);
 
-	i = 0;
 	while (format && format[i])
 	{
-
-		if (format[i] == p[i].prType)
+		j = 0;
+		while (p[j].prType)
 		{
-			/*printf("Matched:%c\n", format[i]);*/
-			if (i != 0)
-				printf(", ");
-			p[i].f(ap);
+			/*printf("j:%d  format:%c  p[j].prType:%c\n", j, format[i], p[j].prType)*/;
+			if (format[i] == p[j].prType)
+			{
+				/*printf("Matched:%c\n", format[i]);*/
+				if (i != 0)
+					printf(", ");
+				p[j].f(ap);
+				j = -1;
+				break;
 /*too many if statements. REMOVE */
-/* double loop for both p and format */
+			}
+			j++;
 		}
 		i++;
 	}
