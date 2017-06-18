@@ -45,8 +45,13 @@ void pr_string(va_list v)
 	char *str;
 
 	str = va_arg(v, char *);
-	if (!printf("%s", str))
+	if (str == NULL)
+	{
 		printf(NIL_STR);
+		return;
+	}
+
+	printf("%s", str);
 }
 
 /**
