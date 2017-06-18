@@ -45,15 +45,8 @@ void pr_string(va_list v)
 	char *str;
 
 	str = va_arg(v, char *);
-	if (str)
-	{
-		printf("%s", str);
-	}
-	else
-	{
+	if (!printf("%s", str))
 		printf(NIL_STR);
-	}
-/*REMOVE ELSE*/
 }
 
 /**
@@ -63,7 +56,7 @@ void pr_string(va_list v)
  * Return: none
  */
 void print_all(const char * const format, ...)
-{ /* 2 while loops, 2 if, 9 var */
+{
 	myPrint_t p[5] = {
 		{'c', pr_char},
 		{'i', pr_int},
@@ -74,6 +67,9 @@ void print_all(const char * const format, ...)
 
 	va_list ap;
 	unsigned int i = 0, j = 0;
+	char *separatorStr;
+
+	separatorStr = "";
 
 	va_start(ap, format);
 
@@ -86,12 +82,11 @@ void print_all(const char * const format, ...)
 			if (format[i] == p[j].prType)
 			{
 				/*printf("Matched:%c\n", format[i]);*/
-				if (i != 0)
-					printf(", ");
+				printf("%s", separatorStr);
+				separatorStr = ", ";
 				p[j].f(ap);
 				j = -1;
 				break;
-/*too many if statements. REMOVE */
 			}
 			j++;
 		}
