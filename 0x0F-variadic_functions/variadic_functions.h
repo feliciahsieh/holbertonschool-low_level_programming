@@ -1,6 +1,11 @@
 #ifndef VARFUN
 #define VARFUN
 
+/**
+ * struct myPrint - mapping table for print type and function to call
+ * @prType: print type
+ * @f: function to call when print type detected
+ */
 typedef struct myPrint
 {
 	char prType;
