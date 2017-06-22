@@ -15,6 +15,13 @@ int main(void)
 	list_t hello = {"World", 5, NULL};
 	size_t n;
 
+	/* test 1: head = NULL */
+	head = NULL;
+	n = print_list(head);
+
+	n = print_list(&hello);
+	printf("-> %lu elements\n", n);
+
 	head = &hello;
 	new = malloc(sizeof(list_t));
 	if (new == NULL)
@@ -30,5 +37,6 @@ int main(void)
 	printf("-> %lu elements\n", n);
 	free(new->str);
 	free(new);
+
 	return (0);
 }
