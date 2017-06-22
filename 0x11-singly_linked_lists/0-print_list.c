@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include "lists.h"
 /**
- * main - prints all the elements of a list_t list
- *
- * Return: Always 0
+ * print_list - prints all the elements of a list_t list
+ * @h: linked list
+ * Return: size of linked list
  */
 size_t print_list(const list_t *h)
 {
@@ -11,6 +11,7 @@ size_t print_list(const list_t *h)
 
 	while (h)
 	{
+		printf("[%u] %s\n", h->len, h->str);
 		count++;
 		h = h->next;
 	}
