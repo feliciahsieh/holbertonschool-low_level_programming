@@ -20,7 +20,7 @@ typedef struct list_s
 
 char *mystrcpy(char *dest, const char *src);
 unsigned int mystrlen(const char *s);
-char *strdup(char *s);
+char *strdup(const char *s);
 
 size_t print_list(const list_t *h);
 size_t list_len(const list_t *h);
