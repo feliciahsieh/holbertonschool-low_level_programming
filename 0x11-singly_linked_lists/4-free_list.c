@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
 /**
@@ -9,7 +8,6 @@
 void free_list(list_t *head)
 {
 	list_t *node;
-	int i = 0;
 
 	if (head == NULL)
 		return;
@@ -20,6 +18,5 @@ void free_list(list_t *head)
 		free(head->str);
 		free(head);
 		head = node;
-		printf("node:i:%d\n", i++);
 	}
 }
