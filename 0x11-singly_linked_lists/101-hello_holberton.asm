@@ -4,7 +4,6 @@ section .text
 main:				;tell linker entry point
 	mov rax, 0		;set system call. 64-bit register
 	mov rdi, msg		;store msg
-	mov rcx, msg		;message to write
 	call printf		;call printf function
 	mov rax, 0		;set system call
 	ret			;return
