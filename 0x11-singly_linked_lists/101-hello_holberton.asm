@@ -10,4 +10,4 @@ main:				;tell linker entry point
 
 section .data
 
-msg db	'Hello Holberton',10, 0	;string to print
+msg db	'Hello, Holberton',10, 0	;string to print
