@@ -1,15 +1,14 @@
+	global main		;must be declared for using gcc. Goto main label
+	extern printf
 section .text
-	global _start		;must be declared for using gcc
-_start:				;tell linker entry point
-	mov edx, len		;message length
+main:				;tell linker entry point
+	mov rax, 0		;set system call. 64-bit register
+	mov rdi, msg		;store msg
 	mov ecx, msg		;message to write
-	mov ebx, 1		;file descriptor (stdout)
-	mov eax, 4		;system call number (sys_write)
-	int 0x80		;call kernal
-	mov eax, 1		;system call number (sys_exit)
-	int 0x80		;call kernel
+	call printf		;call printf function
+	mov rax, 0		;set system call
+	ret			;return
 
 section .data
 
-msg db	'Hello Holberton\n',0xa	;our string
-len equ $ - msg			;length of our string
+msg db	'Hello Holberton',10, 0	;string to print
