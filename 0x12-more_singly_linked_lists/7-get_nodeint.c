@@ -13,12 +13,10 @@ listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 
 	while ((i < index) && (head->next != NULL))
 	{
-		printf("i:%d head->n:%d\n", i, head->n);
 		if (head->next != NULL)
 			head = head->next;
 		i++;
 	}
-	printf("ME:%d\n", head->n);
 
 	if (i > (index + 1))
 		return (NULL);
