@@ -3,7 +3,7 @@
 #include "lists.h"
 /**
  * print_listint_safe - prints a listint_t linked list
- * @head: head of hte linked list
+ * @head: head of the linked list
  * Return: number of nodes in list
  */
 size_t print_listint_safe(const listint_t *head)
@@ -18,9 +18,9 @@ size_t print_listint_safe(const listint_t *head)
 	printf("hello\n");
 	while (head != NULL)
 	{
-		printf("in while loop  i:%ud\n", count);
-		count++;
+		printf("in while loop  i:%lu\n", (unsigned long)count);
 		head = head->next;
+		count++;
 	}
 
 	return (count);
