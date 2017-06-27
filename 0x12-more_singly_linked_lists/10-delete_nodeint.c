@@ -32,7 +32,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		i++;
 	}
 
-	if ((temp == NULL) || (temp->next == NULL))
+	if (temp == NULL)
 		return (LISTFAIL);
 
 	/* check if at beginning of list */
