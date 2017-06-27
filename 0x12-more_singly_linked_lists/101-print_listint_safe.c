@@ -18,7 +18,7 @@ size_t print_listint_safe(const listint_t *head)
 	printf("hello\n");
 	while (head != NULL)
 	{
-		printf("in while loop  i:%i\n", count);
+		printf("in while loop  i:%ud\n", count);
 		count++;
 		head = head->next;
 	}
