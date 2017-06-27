@@ -1,16 +1,24 @@
-# low_level_programming
--Project name: included upon creation of your README file
+# C and Bash (low-level_code)
 
--Description: Various C and Bash scripts that runs small tasks. The code will/does... and is important because.
+##Project name
+included upon creation of your README file
 
--Table of Contents: 
+##Description
+Various C and Bash scripts that runs small tasks. The code will/does... and is important because.
 
--Installation: Steps to install. Tell other users how to install your project locally. Include a gif if possible.
+##Table of Contents
 
--Usage: How to use your project after installation. Include screenshots of your project in action.
+##Installation
+Steps to install. Tell other users how to install your project locally. Include a gif if possible.
 
--Contributing: If you would like to contribute to the further development of this work, please contact Felicia Hsieh
+##Usage
+How to use your project after installation. Include screenshots of your project in action.
 
--Credits: Felicia Hsieh
+##Contributing
+If you would like to contribute to the further development of this work, please contact Felicia Hsieh
 
--License: GNU Public License
+##Credits
+Felicia Hsieh
+
+##License
+GNU Public License
