@@ -3,16 +3,15 @@
 #include "lists.h"
 #define ERRORCODE 98
 /**
- * print_listint_safe - prints a listint_t linked list and detects circular list
- * using Floyd's algorithm (tortoise and the hare)
+ * find_listint_loop - finds the loop in a linked list
+ * using Floyd's algorithm (tortoise and the hare). Use only 2 variables
  * @head: head of the linked list
- * Return: number of nodes in list
+ * Return: address of the start of the loop or NULL if no loop
  */
-size_t print_listint_safe(const listint_t *head)
+listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *hare = NULL;
 	const listint_t *tortoise = NULL;
-	size_t count = 0;
 
 	if (head == NULL)
 	{
