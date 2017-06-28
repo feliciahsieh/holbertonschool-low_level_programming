@@ -22,17 +22,20 @@ listint_t *find_listint_loop(listint_t *head)
 		printf("[%p] %d\n", (void *)tortoise, tortoise->n);
 		if (hare == NULL)
 		{ /* No loop found */
+			printRemainingList(tortoise, hare);
 			return (NULL);
 		}
 		hare = hare->next;
 		if (hare == NULL)
 		{
+			printRemainingList(tortoise, hare);
 			return (NULL);
 		}
 		hare = hare->next;
 		tortoise = tortoise->next;
 		if (hare == tortoise)
 		{ /* Loop found */
+			printRemainingList(tortoise, hare);
 			return (tortoise);
 		}
 	}
