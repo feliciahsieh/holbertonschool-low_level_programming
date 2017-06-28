@@ -3,39 +3,66 @@
 #include "lists.h"
 #define ERRORCODE 98
 /**
- * print_listint_safe - prints a listint_t linked list and detects circular list
+ * printRemainingList - prints remaining nodes until tortoise meets hare
+ * using Floyd's algorithm (tortoise and the hare)
+ * @t: tortoise pointer
+ * @h: hare pointer
+ * Return: none
+ */
+void printRemainingList(const listint_t *t, const listint_t *h)
+{
+	while (t != h)
+	{
+		printf("[%p] %d\n", (void *)t, t->n);
+		t = t->next;
+	}
+}
+
+/**
+ * print_listint_safe - prints a listint_t linked list and finds circular list
  * using Floyd's algorithm (tortoise and the hare)
  * @head: head of the linked list
  * Return: number of nodes in list
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	listint_t *hare = NULL;
-	const listint_t *tortoise = NULL;
+	const listint_t *hare, *tortoise;
 	size_t count = 0;
 
 	if (head == NULL)
 	{
-		printf("-> [%p] %d\n", (void *)head, ERRORCODE);
-		exit(98);
+		printf("-> [%p] %d\n", (void *)head, head->n);
+		exit(ERRORCODE);
 	}
 	tortoise = head;
-	hare = tortoise->next->next;
-
-	while ((void *)hare != (void *)tortoise)
+	hare = head;
+	while (1)
 	{
 		printf("[%p] %d\n", (void *)tortoise, tortoise->n);
+		if (hare == NULL)
+		{ /* No loop found */
+			printRemainingList(tortoise, hare);
+			break;
+		}
+		hare = hare->next;
+		if (hare == NULL)
+		{ /* No loop found */
+			printRemainingList(tortoise, hare);
+			break;
+		}
+		hare = hare->next;
 		tortoise = tortoise->next;
-		hare = hare->next->next;
+		if (hare == tortoise)
+		{ /* Loop found */
+			printRemainingList(tortoise, hare);
+			break;
+		}
 		count++;
 	}
-
 	if (tortoise == hare)
-	{
-		/* Circular list detected */
-		printf("-> [%p] %d\n", (void *)head, ERRORCODE);
-		exit(98); /* Use echo $? on command line to verify */
+	{ /* Circular list detected */
+		printf("-> [%p] %d\n", (void *)hare, hare->n);
+		exit(ERRORCODE); /* Use echo $? on command line to verify */
 	}
-
 	return (count);
 }
