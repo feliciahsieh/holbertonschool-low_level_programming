@@ -3,38 +3,43 @@
 #include "lists.h"
 #define ERRORCODE 98
 /**
- * find_listint_loop - finds the loop in a linked list
- * using Floyd's algorithm (tortoise and the hare). Use only 2 variables
+ * print_listint_safe - prints a listint_t linked list and finds circular list
+ * using Floyd's algorithm (tortoise and the hare)
  * @head: head of the linked list
- * Return: address of the start of the loop or NULL if no loop
+ * Return: number of nodes in list
  */
+
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *hare = NULL;
-	const listint_t *tortoise = NULL;
+	const listint_t *hare, *tortoise;
 
 	if (head == NULL)
-	{
-		printf("-> [%p] %d\n", (void *)head, ERRORCODE);
-		exit(98);
-	}
+		return (NULL);
 	tortoise = head;
-	hare = tortoise->next->next;
-
-	while ((void *)hare != (void *)tortoise)
+	hare = head;
+	while (1)
 	{
 		printf("[%p] %d\n", (void *)tortoise, tortoise->n);
+		if (hare == NULL)
+		{ /* No loop found */
+			return (NULL);
+		}
+		hare = hare->next;
+		if (hare == NULL)
+		{
+			return (NULL);
+		}
+		hare = hare->next;
 		tortoise = tortoise->next;
-		hare = hare->next->next;
-		count++;
+		if (hare == tortoise)
+		{ /* Loop found */
+			return (tortoise);
+		}
 	}
-
 	if (tortoise == hare)
 	{
-		/* Circular list detected */
-		printf("-> [%p] %d\n", (void *)head, ERRORCODE);
-		exit(98); /* Use echo $? on command line to verify */
+		printf("-> [%p] %d\n", (void *)hare, hare->n);
+		return (tortoise);
 	}
-
-	return (count);
+	return (NULL);
 }
