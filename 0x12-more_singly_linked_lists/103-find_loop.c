@@ -11,7 +11,7 @@
 
 listint_t *find_listint_loop(listint_t *head)
 {
-	const listint_t *hare, *tortoise;
+	listint_t *hare, *tortoise;
 
 	if (head == NULL)
 		return (NULL);
