@@ -13,7 +13,7 @@ void printRemainingList(const listint_t *t, const listint_t *h)
 {
 	while (t != h)
 	{
-		printf("[%p] %d\n", (void *)t, t->n);
+		printf("xx[%p] %d\n", (void *)t, t->n);
 		t = t->next;
 	}
 }
@@ -40,29 +40,30 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		printf("[%p] %d\n", (void *)tortoise, tortoise->n);
 		if (hare == NULL)
-		{ /* No loop found */
-			printRemainingList(tortoise, hare);
+		{
+			printRemainingList(tortoise->next, hare);
 			break;
 		}
 		hare = hare->next;
 		if (hare == NULL)
-		{ /* No loop found */
-			printRemainingList(tortoise, hare);
+		{
+			printRemainingList(tortoise->next, hare);
 			break;
 		}
 		hare = hare->next;
 		tortoise = tortoise->next;
 		if (hare == tortoise)
-		{ /* Loop found */
+		{
 			printRemainingList(tortoise, hare);
 			break;
 		}
 		count++;
 	}
 	if (tortoise == hare)
-	{ /* Circular list detected */
+	{
+		printRemainingList(hare, tortoise);
 		printf("-> [%p] %d\n", (void *)hare, hare->n);
-		exit(ERRORCODE); /* Use echo $? on command line to verify */
+		exit(ERRORCODE);
 	}
 	return (count);
 }
