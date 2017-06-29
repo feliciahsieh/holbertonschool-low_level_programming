@@ -1,23 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
-#define ERRORCODE 98
-/**
- * printRemainingList - prints remaining nodes until tortoise meets hare
- * using Floyd's algorithm (tortoise and the hare)
- * @t: tortoise pointer
- * @h: hare pointer
- * Return: none
- */
-void printRemainingList(const listint_t *t, const listint_t *h)
-{
-	while (t != h)
-	{
-		printf("xx[%p] %d\n", (void *)t, t->n);
-		t = t->next;
-	}
-}
-
 /**
  * print_listint_safe - prints a listint_t linked list and finds circular list
  * using Floyd's algorithm (tortoise and the hare)
