@@ -49,13 +49,5 @@ size_t print_listint_safe(const listint_t *head)
 		head = head->next;
 		size++;
 	}
-/*
-	if (tortoise == hare)
-	{
-		printRemainingList(hare, tortoise);
-		printf("-> [%p] %d\n", (void *)hare, hare->n);
-		exit(ERRORCODE);
-	}
-*/
 	return (size);
 }
