@@ -9,16 +9,10 @@
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned int bitop = 1;
-	unsigned int i;
-
 	if (index > 31)
 		return (ERROR_B);
 
-	for (i = 0; i < index; i++)
-		bitop = bitop << 1;
-
-	*n = *n | bitop;
+	*n |= 1 << index;
 
 	return (1);
 }
