@@ -11,13 +11,7 @@ void print_binary(unsigned long int n)
 	unsigned long int mask = 2147483648;
 	unsigned long int i;
 	int isHighDigit = 0;
-/*
-	if (n <= 1)
-	{
-		_putchar(n + '0');
-		return;
-	}
-*/
+
 	if (n == 0)
 	{
 		_putchar('0');
@@ -27,7 +21,7 @@ void print_binary(unsigned long int n)
 	mask = mask >> 1;
 	mask = ~mask;
 
-	for(i = 0; i < (8 * (sizeof(unsigned long int))); i++)
+	for (i = 0; i < (8 * (sizeof(unsigned long int))); i++)
 	{
 		if ((n & mask) > 0)
 		{
