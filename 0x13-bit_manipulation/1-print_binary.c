@@ -2,7 +2,6 @@
 #include "holberton.h"
 #include <limits.h>
 #define UL_MAXPOW2 2147483648
-
 /**
  * print_binary - prints the binary number of argument n
  * @n: value to convert to binary
