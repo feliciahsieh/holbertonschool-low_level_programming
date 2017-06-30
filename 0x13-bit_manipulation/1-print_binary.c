@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "holberton.h"
 #include <limits.h>
+#include "holberton.h"
 /**
  * print_binary - prints the binary number of argument n
  * @n: value to convert to binary
@@ -8,28 +8,37 @@
  */
 void print_binary(unsigned long int n)
 {
-	int i;
-	int places = 0;
-	unsigned long int divisor = 2147483648;
-
+	unsigned long int mask = 2147483648;
+	unsigned long int i;
+	int isHighDigit = 0;
+/*
 	if (n <= 1)
 	{
 		_putchar(n + '0');
 		return;
 	}
-
-	while (divisor > n)
+*/
+	if (n == 0)
 	{
-		places++;
-		divisor = divisor >> 1;
+		_putchar('0');
+		return;
 	}
+	mask = ~0;
+	mask = mask >> 1;
+	mask = ~mask;
 
-	for (i = 0; i < (32 - places); i++)
+	for(i = 0; i < (8 * (sizeof(unsigned long int))); i++)
 	{
-		if ((n & divisor) > 0)
+		if ((n & mask) > 0)
+		{
 			_putchar('1');
-		else
+			isHighDigit = 1;
+		}
+		else if (isHighDigit)
+		{
 			_putchar('0');
-		divisor = divisor >> 1;
+		}
+		mask = mask >> 1;
 	}
+
 }
