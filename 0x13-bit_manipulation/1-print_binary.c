@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "holberton.h"
 #include <limits.h>
-#define UL_MAXPOW2 2147483648
 /**
  * print_binary - prints the binary number of argument n
  * @n: value to convert to binary
@@ -11,7 +10,7 @@ void print_binary(unsigned long int n)
 {
 	int i;
 	int places = 0;
-	unsigned long int divisor = ULONG_MAX;
+	unsigned long int divisor = 2147483648;
 
 	if (n <= 1)
 	{
@@ -19,7 +18,6 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	divisor = UL_MAXPOW2;
 	while (divisor > n)
 	{
 		places++;
