@@ -26,20 +26,28 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (fd == -1)
 	{
 		printf("Failed to create and open the file\n");
-		exit(1);
+		free(buffer);
+		return(0);
 	}
 
 	readCount = read(fd, buffer, letters);
 	if (readCount == -1)
+	{
+		free(buffer);
+		close(fd);
 		return (0);
+	}
 	buffer[letters] = '\0';
 
-	if (readCount < (ssize_t)letters)
-		writeCount = write(STDOUT_FILENO, buffer, readCount);
-	else
-		writeCount = write(STDOUT_FILENO, buffer, letters);
+/*	if (readCount < (ssize_t)letters) */
+	writeCount = write(STDOUT_FILENO, buffer, readCount);
+
 	if (writeCount == -1)
+	{
+		free(buffer);
+		close(fd);
 		return (0);
+	}
 
 	close(fd);
 
