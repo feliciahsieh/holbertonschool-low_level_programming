@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
-
 /**
  * read_textfile - reads a text file and prints it to the POSIX standard output
  * @filename: filename to read text
@@ -24,7 +23,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
-		printf("Failed to create and open the file\n");
 		free(buffer);
 		return (0);
 	}
