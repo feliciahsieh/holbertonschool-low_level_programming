@@ -35,7 +35,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (readCount < letters)
 		writeCount = write(STDOUT_FILENO, buffer, readCount);
 	else
-		writeCount = write(STDOUT_FILENO, buffer, letters + 1);
+		writeCount = write(STDOUT_FILENO, buffer, letters);
 
 	close(fd);
 
