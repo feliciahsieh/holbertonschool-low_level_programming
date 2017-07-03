@@ -21,15 +21,13 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	buffer = malloc((letters + 1) * sizeof(char));
 	if (buffer == NULL)
 		return (0);
-
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 	{
 		printf("Failed to create and open the file\n");
 		free(buffer);
-		return(0);
+		return (0);
 	}
-
 	readCount = read(fd, buffer, letters);
 	if (readCount == -1)
 	{
@@ -38,21 +36,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 	buffer[letters] = '\0';
-
-/*	if (readCount < (ssize_t)letters) */
 	writeCount = write(STDOUT_FILENO, buffer, readCount);
-
 	if (writeCount == -1)
 	{
 		free(buffer);
 		close(fd);
 		return (0);
 	}
-
 	close(fd);
-
 	free(buffer);
-
 	if (readCount == writeCount)
 		return (writeCount);
 	else
