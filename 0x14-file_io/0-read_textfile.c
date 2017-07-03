@@ -11,7 +11,7 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int readCount = 0, writeCount = 0;
+	ssize_t readCount = 0, writeCount = 0;
 	int fd;
 	char *buffer;
 
@@ -34,7 +34,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	buffer[letters] = '\0';
 
-	if ((size_t)readCount < letters)
+	if (readCount < (ssize_t)letters)
 		writeCount = write(STDOUT_FILENO, buffer, readCount);
 	else
 		writeCount = write(STDOUT_FILENO, buffer, letters);
