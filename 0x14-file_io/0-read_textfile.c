@@ -33,15 +33,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	buffer[letters] = '\0';
 
 	if (readCount < letters)
-		writeCount = write(STDOUT_FILENO, buffer, readCount + 1);
+		writeCount = write(STDOUT_FILENO, buffer, readCount);
 	else
-		writeCount = write(STDOUT_FILENO, buffer, letters);
+		writeCount = write(STDOUT_FILENO, buffer, letters + 1);
 
 	close(fd);
 
 	free(buffer);
 
-	if ((readCount + 1) == writeCount)
+	if (readCount == writeCount)
 		return (writeCount);
 	else
 		return (0);
