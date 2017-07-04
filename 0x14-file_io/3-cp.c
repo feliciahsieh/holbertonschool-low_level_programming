@@ -23,6 +23,11 @@ int main(int argc, char **argv)
 		write(STDERR_FILENO, ERR97, 28);
 		exit(97);
 	}
+	if ((argv[1] == NULL) || (argv[2] == NULL))
+	{
+		dprintf(STDERR_FILENO, "%s%s\n", ERR98, argv[1]);
+		exit(98);
+	}
 	fd_dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_dest == -1)
 	{
