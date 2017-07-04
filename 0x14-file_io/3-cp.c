@@ -28,14 +28,14 @@ int main(int argc, char **argv)
 	fd_dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_dest == -1)
 	{
-		dprintf(STDERR_FILENO, "%s%s\n", ERR98, argv[2]);
-			exit(98);
+		dprintf(STDERR_FILENO, "%s%s\n", ERR99, argv[2]);
+			exit(99);
 	}
 	fd_source = open(argv[1], O_RDONLY);
 	if (fd_source == -1)
 	{
-		dprintf(STDERR_FILENO, "%s%s\n", ERR99, argv[1]);
-		exit(99);
+		dprintf(STDERR_FILENO, "%s%s\n", ERR98, argv[1]);
+		exit(98);
 	}
 	readCount = 1;
 	while (readCount > 0)
@@ -43,11 +43,9 @@ int main(int argc, char **argv)
 		readCount = read(fd_source, buffer, NUMBYTES);
 		writeCount = write(fd_dest, buffer, readCount);
 	}
-	fd_close = close(fd_dest);
-	if (fd_close != 0)
+	if (close(fd_dest) != 0)
 		dprintf(STDERR_FILENO, "%s%d\n", ERR100, fd_dest);
-	fd_close = close(fd_source);
-	if (fd_close != 0)
+	if (close(fd_source) != 0)
 		dprintf(STDERR_FILENO, "%s%d\n", ERR100, fd_source);
 	return (0);
 }
