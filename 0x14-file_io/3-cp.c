@@ -15,15 +15,15 @@
  */
 int main(int argc, char **argv)
 {
-	int fd_d, fd_s, readCount = NUMBYTES, writeCount = 0;
+	int fd_d, fd_s, readCount = NUMBYTES, writeCount = 0, val = 0;
 	char buffer[NUMBYTES] = { 0 };
 
 	if (argc != 3)
 	{
-		write(STDERR_FILENO, ERR97, 28);
-		exit(97);
+		write(STDERR_FILENO, ERR97, 28), exit(97);
 	}
-	fd_d = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+	val = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
+	fd_d = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, val);
 	if (fd_d == -1)
 	{
 		dprintf(STDERR_FILENO, "%s%s\n", ERR99, argv[2]);
