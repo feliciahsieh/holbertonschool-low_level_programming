@@ -19,6 +19,7 @@ int main(int argc, char **argv)
 	int readCount = 0, writeCount = 0;
 	char buffer[NUMBYTES] = { 0 };
 
+	writeCount = writeCount;
 	if (argc != 3)
 	{
 		if (write(STDERR_FILENO, ERR97, 28) < 0)
@@ -40,17 +41,13 @@ int main(int argc, char **argv)
 	while (readCount > 0)
 	{
 		readCount = read(fd_source, buffer, NUMBYTES);
-		if (readCount == -1)
-			break;
 		writeCount = write(fd_dest, buffer, readCount);
-		if (writeCount == -1)
-			break;
 	}
 	fd_close = close(fd_dest);
 	if (fd_close != 0)
-		dprintf(STDERR_FILENO, "%s%d\n", ERR100, fd_close);
+		dprintf(STDERR_FILENO, "%s%d\n", ERR100, fd_dest);
 	fd_close = close(fd_source);
 	if (fd_close != 0)
-		dprintf(STDERR_FILENO, "%s%d\n", ERR100, fd_close);
+		dprintf(STDERR_FILENO, "%s%d\n", ERR100, fd_source);
 	return (0);
 }
