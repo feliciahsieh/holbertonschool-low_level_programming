@@ -51,8 +51,8 @@ int main(int argc, char **argv)
 		}
 	}
 	if (close(fd_d) != 0)
-		dprintf(STDERR_FILENO, "%s%d\n", ERR100, fd_d);
+		dprintf(STDERR_FILENO, "%s%d\n", ERR100, fd_d), exit(100);
 	if (close(fd_s) != 0)
-		dprintf(STDERR_FILENO, "%s%d\n", ERR100, fd_s);
+		dprintf(STDERR_FILENO, "%s%d\n", ERR100, fd_s), exit(100);
 	return (0);
 }
