@@ -15,7 +15,7 @@
  */
 int main(int argc, char **argv)
 {
-	int fd_dest, fd_source, fd_close;
+	int fd_dest, fd_source;
 	int readCount = 0, writeCount = 0;
 	char buffer[NUMBYTES] = { 0 };
 
