@@ -21,10 +21,8 @@ int main(int argc, char **argv)
 
 	writeCount = writeCount;
 	if (argc != 3)
-	{
 		if (write(STDERR_FILENO, ERR97, 28) < 0)
 			exit(97);
-	}
 	fd_dest = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
 	if (fd_dest == -1)
 	{
