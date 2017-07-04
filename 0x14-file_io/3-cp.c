@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		write(STDERR_FILENO, ERR97, 29);
+		write(STDERR_FILENO, ERR97, 28);
 		exit(97);
 	}
 	fd_dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
