@@ -16,7 +16,7 @@
 int main(int argc, char **argv)
 {
 	int fd_dest, fd_source;
-	int readCount = 0, writeCount = 0;
+	int readCount = 1, writeCount = 0;
 	char buffer[NUMBYTES] = { 0 };
 
 	writeCount = writeCount;
@@ -25,11 +25,11 @@ int main(int argc, char **argv)
 		if (write(STDERR_FILENO, ERR97, 28) < 0)
 			exit(97);
 	}
-	fd_dest = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	fd_dest = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
 	if (fd_dest == -1)
 	{
 		dprintf(STDERR_FILENO, "%s%s\n", ERR99, argv[2]);
-			exit(99);
+		exit(99);
 	}
 	fd_source = open(argv[1], O_RDONLY);
 	if (fd_source == -1)
@@ -37,11 +37,20 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "%s%s\n", ERR98, argv[1]);
 		exit(98);
 	}
-	readCount = 1;
 	while (readCount > 0)
 	{
 		readCount = read(fd_source, buffer, NUMBYTES);
+		if (readCount == -1)
+		{
+			dprintf(STDERR_FILENO, "%s%s\n", ERR98, argv[1]);
+			exit(98);
+		}
 		writeCount = write(fd_dest, buffer, readCount);
+		if (writeCount == -1)
+		{
+			dprintf(STDERR_FILENO, "%s%s\n", ERR99, argv[2]);
+			exit(99);
+		}
 	}
 	if (close(fd_dest) != 0)
 		dprintf(STDERR_FILENO, "%s%d\n", ERR100, fd_dest);
