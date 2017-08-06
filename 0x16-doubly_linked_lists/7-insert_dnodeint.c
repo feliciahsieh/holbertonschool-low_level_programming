@@ -4,7 +4,7 @@
 
 /**
  * create_dnode - creates new node
- * @head: head of doubly-linked list
+ * @n: data of node
  * @prev: link to prev node
  * @next: link to next node
  * Return: pointer to new node
@@ -67,7 +67,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	{
 		if (!h)
 		{
-			printf("2**\n");
 			*h = create_dnode(n, NULL, NULL);
 		}
 		else
@@ -79,17 +78,16 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 	for (curr = *h; curr && (count < idx); curr = curr->next, count++)
 	{
-		printf("count:%d n:%d\n", count, curr->n);
 		localPrev = curr;
 	}
-	if ((count > idx) && (curr == NULL))
-		return (NULL);
 	if ((count == idx) && (curr == NULL))
 	{
 		localPrev->next = create_dnode(n, localPrev, NULL);
 		return (new);
 	}
-	if (curr->prev != NULL)
+	if (curr == NULL)
+		return (NULL);
+	if (localPrev != NULL)
 	{
 		curr->next = create_dnode(n, curr, curr->next);
 		curr->next->next->prev = curr->next;
