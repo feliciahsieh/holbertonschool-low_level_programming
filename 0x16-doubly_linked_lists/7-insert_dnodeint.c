@@ -34,32 +34,32 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	dlistint_t *curr = *h, *localPrev = NULL;
 	unsigned int count = 0;
 
-	if ((!h && (idx != 0)) || !(*h))
+	if (!(*h && h)
 		return (NULL);
-	if (idx == 0) /* insert at beginning*/
+	if (idx == 0) /* insert at list beginning*/
 	{
 		if (!h)
-			*h = create_dnode(n, NULL, NULL); /*case1*/
+			*h = create_dnode(n, NULL, NULL); /*first node*/
 		else
-		{ /*case2, case4*/
+		{
 			(*h)->prev = create_dnode(n, NULL, *h);
 			*h = (*h)->prev;
 		}
 		return (*h);
 	}
 	for (curr = *h; curr && (count < idx); curr = curr->next, count++)
-	{ /*case3, case5, case6, case7*/
+	{
 		localPrev = curr;
 	}
 	if ((count == idx) && (curr == NULL)) /*insert at list end*/
-	{ /*case3, case6*/
+	{
 		localPrev->next = create_dnode(n, localPrev, NULL);
 		return (localPrev->next);
 	}
-	if ((count < idx) && (curr == NULL))/*case7*/
+	if ((count < idx) && (curr == NULL))/*idx too high*/
 		return (NULL);
 	if (localPrev != NULL)
-	{ /*case5*/
+	{ /*insert in middle of list*/
 		localPrev->next = create_dnode(n, localPrev, curr);
 		curr->prev = localPrev->next;
 		return (localPrev->next);
