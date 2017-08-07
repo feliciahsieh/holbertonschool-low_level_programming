@@ -34,7 +34,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	dlistint_t *curr = *h, *localPrev = NULL;
 	unsigned int count = 0;
 
-	if ((!h && (idx != 0)) || !(*h))
+	if (!h)
 		return (NULL);
 	if (idx == 0) /* insert at list beginning*/
 	{
@@ -59,7 +59,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if ((count < idx) && (curr == NULL))/*idx too high*/
 		return (NULL);
 	if (localPrev != NULL)
-	{ /*insert in middle of list*/
+	{       /*insert in middle of list*/
 		localPrev->next = create_dnode(n, localPrev, curr);
 		curr->prev = localPrev->next;
 		return (localPrev->next);
