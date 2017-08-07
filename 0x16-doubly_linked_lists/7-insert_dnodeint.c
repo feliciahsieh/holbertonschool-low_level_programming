@@ -38,7 +38,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		return (NULL);
 	if (idx == 0) /* insert at list beginning*/
 	{
-		if (!h)
+		if (!*h)
 			*h = create_dnode(n, NULL, NULL); /*first node*/
 		else
 		{
