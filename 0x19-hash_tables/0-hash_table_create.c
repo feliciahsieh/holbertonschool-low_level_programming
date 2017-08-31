@@ -3,6 +3,11 @@
 #include <limits.h>
 #include "hash_tables.h"
 
+/**
+ * hash_table_create - create hash table struct
+ * @size: size of array indexes (pointers to hash_node_t)
+ * Return: struct to hash_table_t
+ */
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *h = NULL;
