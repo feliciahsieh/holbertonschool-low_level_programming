@@ -24,13 +24,15 @@ void hash_table_delete(hash_table_t *ht)
 					while (curr)
 					{
 						prev = curr;
-						curr = curr->next;
+						free(prev->key);
+						free(prev->value);
 						free(prev);
+						curr = curr->next;
 					}
 				}
 			}
-			free (ht->array);
+			free(ht->array);
 		}
-		free (ht);
+		free(ht);
 	}
 }

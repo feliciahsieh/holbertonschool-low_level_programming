@@ -43,7 +43,5 @@ int main(void)
 
 	printf("18: %d:\n", hash_table_set(ht, "", ""));
 
-	free(ht->array);
-	free(ht);
 	return (EXIT_SUCCESS);
 }

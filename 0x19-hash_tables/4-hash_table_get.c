@@ -22,7 +22,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	index = hash_djb2((const unsigned char *)key) % ht->size;
 
 	curr = ht->array[index];
-	while(curr)
+	while (curr)
 	{
 		if (!strcmp(curr->key, key))
 			return (ht->array[index]->value);
