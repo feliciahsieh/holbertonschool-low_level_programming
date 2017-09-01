@@ -15,8 +15,8 @@ int main(void)
 	ht = hash_table_create(1024);
 	printf("%p\n", (void *)ht);
 
-	/*free(ht->array);
-	  free(ht);*/
+	free(ht->array);
+	free(ht);
 
 	return (EXIT_SUCCESS);
 }

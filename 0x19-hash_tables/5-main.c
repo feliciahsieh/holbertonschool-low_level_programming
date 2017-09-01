@@ -23,5 +23,6 @@ int main(void)
 	hash_table_print(ht);
 
 	hash_table_print(NULL);
+
 	return (EXIT_SUCCESS);
 }

@@ -43,5 +43,7 @@ int main(void)
 
 	printf("18: %d:\n", hash_table_set(ht, "", ""));
 
+	printf("18: %d:\n", hash_table_set(NULL, "a", "b"));
+
 	return (EXIT_SUCCESS);
 }
