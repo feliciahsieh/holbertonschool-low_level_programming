@@ -4,6 +4,25 @@
 #include "hash_tables.h"
 
 /**
+ * myStrdup - duplicate a string and check for error
+ * @node: node that will hold the value
+ * @myKey: string that was duplicated
+ * Return: pointer to string if success. NULL if not
+ */
+char *myStrdup(hash_node_t **node, char *myKey)
+{
+	char *s = NULL;
+
+	s = strdup(myKey);
+	if (s == NULL)
+	{
+		free(node);
+		return (NULL);
+	}
+	return (s);
+}
+
+/**
  * hash_table_set - adds an element to the hash table
  * @ht: hash table to use
  * @key: hash table key. Cannot be an empty string
@@ -21,12 +40,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	n = malloc(sizeof(hash_node_t));
 	if (n == NULL)
 		return (0);
-	n->key = strdup((char *)key);
-	if (n->key == NULL)
-		free(n), return (0);
-	n->value = strdup((char *)value);
-	if (n->value == NULL)
-		free(n), return (0);
+	n->key = myStrdup(&n, (char *)key);
+	n->value = myStrdup(&n, (char *)value);
 	n->next = NULL;
 	if (ht->array[index] == NULL)
 		ht->array[index] = n;
@@ -37,9 +52,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		{
 			if (!strcmp(curr->key, key))
 			{
-				curr->value = strdup((char *)value);
-				if (curr->value == NULL)
-					free(n), return (0);
+				curr->value = myStrdup(&n, (char *)value);
 				return (1);
 			}
 			curr = curr->next;
