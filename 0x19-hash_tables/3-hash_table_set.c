@@ -16,7 +16,11 @@ char *myStrdup(hash_node_t **node, char *myKey)
 	s = strdup(myKey);
 	if (s == NULL)
 	{
-		free(node);
+		if ((*node)->key)
+			free((*node)->key);
+		if ((*node)->value)
+			free((*node)->value);
+		free(*node);
 		return (NULL);
 	}
 	return (s);
@@ -32,6 +36,7 @@ char *myStrdup(hash_node_t **node, char *myKey)
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *n = NULL, *curr = NULL;
+	char *temp = NULL;
 	unsigned long int index = 0;
 
 	if (!ht || !strcmp(key, "") || !key || !value)
@@ -52,7 +57,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		{
 			if (!strcmp(curr->key, key))
 			{
+				temp = curr->value;
 				curr->value = myStrdup(&n, (char *)value);
+				free(temp);
+				free(n->key);
+				free(n->value);
+				free(n);
 				return (1);
 			}
 			curr = curr->next;
