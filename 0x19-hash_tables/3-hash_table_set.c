@@ -17,16 +17,17 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (!ht || !strcmp(key, "") || !key || !value)
 		return (0);
-
 	index = hash_djb2((const unsigned char *)key) % ht->size;
-
 	n = malloc(sizeof(hash_node_t));
 	if (n == NULL)
 		return (0);
 	n->key = strdup((char *)key);
+	if (n->key == NULL)
+		free(n), return (0);
 	n->value = strdup((char *)value);
+	if (n->value == NULL)
+		free(n), return (0);
 	n->next = NULL;
-
 	if (ht->array[index] == NULL)
 		ht->array[index] = n;
 	else
@@ -37,6 +38,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			if (!strcmp(curr->key, key))
 			{
 				curr->value = strdup((char *)value);
+				if (curr->value == NULL)
+					free(n), return (0);
 				return (1);
 			}
 			curr = curr->next;
@@ -44,6 +47,5 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		n->next = ht->array[index];
 		ht->array[index] = n;
 	}
-
 	return (1);
 }
