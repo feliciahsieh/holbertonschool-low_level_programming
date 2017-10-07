@@ -13,8 +13,7 @@ holberton.o : holberton.c m.h
 
 clean :
 	$(RM) *~ $(NAME)
-	$(RM) #*
-	$(RM) *.swp
+	$(RM) *.ext.swp *.ext~
 
 oclean :
 	$(RM) $(OBJ)
