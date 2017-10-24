@@ -1,6 +1,5 @@
 <h1 class="gap">0x1C. C - Binary trees</h1>
 
-
 <h4 class="task">
     0. New node
       <span class="alert alert-warning mandatory-optional">
