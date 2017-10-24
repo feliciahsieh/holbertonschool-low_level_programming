@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include "binary_trees.h"
 
+/**
+ * myPow - Calc power of a number
+ * @n: exponent to raise power of 2 to
+ * Return: 2^n
+ */
 int myPow(int n)
 {
 	int i, product = 1;
