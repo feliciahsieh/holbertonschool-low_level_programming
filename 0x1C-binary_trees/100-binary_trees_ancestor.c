@@ -4,6 +4,7 @@
  * binary_trees_ancestor - Find lowest common ancestor of two nodes
  * @first: First node
  * @second: Second node
+ * Return: pointer to lowest common ancestor node
  */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second)
 {
@@ -15,7 +16,7 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tr
 
 	temp1 = (binary_tree_t *)first;
 	anc[i++] = temp1;
-	while(temp1)
+	while (temp1)
 	{
 		anc[i++] = temp1->parent;
 		temp1 = temp1->parent;
@@ -23,7 +24,7 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tr
 	i--;
 
 	j = 0;
-	while(j < i)
+	while (j < i)
 	{
 		temp2 = (binary_tree_t *)second;
 		while (temp2)
