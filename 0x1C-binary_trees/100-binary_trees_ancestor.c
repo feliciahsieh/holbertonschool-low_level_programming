@@ -2,13 +2,14 @@
 
 /**
  * binary_trees_ancestor - Find lowest common ancestor of two nodes
- * @first: First node
- * @second: Second node
+ * @f: First node
+ * @s: Second node
  * Return: pointer to lowest common ancestor node
  */
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second)
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+const binary_tree_t *second)
 {
-	binary_tree_t *anc[100] = { 0 }, *temp1, *temp2;
+	binary_tree_t *anc[1024] = { 0 }, *temp1, *temp2;
 	int i = 0, j = 0;
 
 	if (!first && !second)
