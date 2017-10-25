@@ -9,7 +9,7 @@ binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree)
 {
 	binary_tree_t *root = NULL;
 	binary_tree_t *gChild = NULL;
-	binary_tree_t *lChild = NULL, *rChild = NULL;
+	binary_tree_t *lChild = NULL;
 
 	if (!tree)
 		return (NULL);
@@ -17,7 +17,6 @@ binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree)
 	/* Initialize pointers */
 	root = tree->left;
 	lChild = tree->left;
-	rChild = tree->right;
 	if (tree->left)
 		if (tree->left->right)
 			gChild = tree->left->right;
