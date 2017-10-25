@@ -2,8 +2,8 @@
 
 /**
  * binary_trees_ancestor - Find lowest common ancestor of two nodes
- * @f: First node
- * @s: Second node
+ * @first: First node
+ * @second: Second node
  * Return: pointer to lowest common ancestor node
  */
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
