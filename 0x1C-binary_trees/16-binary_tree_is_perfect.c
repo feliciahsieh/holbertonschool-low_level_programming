@@ -2,21 +2,68 @@
 #include "binary_trees.h"
 
 /**
- * myPow - Calc power of a number
- * @n: exponent to raise power of 2 to
- * Return: 2^n
+ * binary_tree_height - finds height of a binary tree
+ * @tree: pointer to binary tree
+ * Return: height of tree or 0 if empty tree
  */
-int myPow(int n)
+size_t binary_tree_height(const binary_tree_t *tree)
 {
-	int i, product = 1;
+	size_t lHeight = 0, rHeight = 0;
 
-	for (i = 0; i < n; i++)
-	{
-		product *= 2;
-	}
-	printf("n:%d prod:%d\n", n, product);
-	return (product);
+	if (!tree)
+		return (0);
+
+	lHeight = binary_tree_height(tree->left);
+	rHeight = binary_tree_height(tree->right);
+	if (lHeight > rHeight)
+		return (1 + lHeight);
+	else
+		return (1 + rHeight);
 }
+
+/**
+ * binary_tree_balance - measures the balance factor of a binary tree
+ * Balance Factor = height(left subtree) - height(right subtree)
+ * @tree: pointer to root of the binary tree
+ * Return: 0 if tree is NULL else ?
+ */
+int binary_tree_balance(const binary_tree_t *tree)
+{
+	int lSubtree = 0, rSubtree = 0;
+
+	if (!tree)
+		return (0);
+	if (!tree->left && !tree->right)
+		return (0);
+
+	lSubtree = binary_tree_height(tree->left);
+	rSubtree = binary_tree_height(tree->right);
+	return (lSubtree - rSubtree);
+}
+
+/**
+ * isPerfect - Checks if binary tree has 0 or 2 children per node
+ * @tree: root node of tree
+ * Return: 1 if TRUE. 0 if FALSE
+ */
+int isPerfect(const binary_tree_t *tree)
+{
+	int result = 0;
+	binary_tree_t *l, *r;
+
+	if (!tree)
+		return (1);
+	l = tree->left;
+	r = tree->right;
+	if ((l && r) || (!l && !r))
+	{
+		result = isPerfect(l) && isPerfect(r);
+		return (result);
+	}
+	else
+		return (0);
+}
+
 
 /**
  * binary_tree_is_perfect - Checks if binary tree is perfect.
@@ -27,21 +74,10 @@ int myPow(int n)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int height = 0;
-	int size = 0;
-
 	if (!tree)
-		return (0);
-
-	size = binary_tree_size(tree);
-	height = binary_tree_height(tree);
-
-	printf("size:%d height:%d\n", size, height);
-
-	if (size == myPow(height + 1))
+		return (1);
+	if (!binary_tree_balance(tree) && isPerfect(tree))
 		return (1);
 	else
 		return (0);
-
-	return (1);
 }
