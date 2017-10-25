@@ -25,5 +25,11 @@ int main(void)
 	printf("Height from %d: %lu\n", root->right->n, height);
 	height = binary_tree_height(root->left->right);
 	printf("Height from %d: %lu\n", root->left->right->n, height);
+
+	binary_tree_insert_right(root->left->right, 88);
+	binary_tree_print(root);
+/*	height = binary_tree_height(root->left->right->right);
+	printf("Height from my %d: %lu\n", root->left->right->right->n, height);
+*/
 	return (0);
 }

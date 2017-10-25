@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	binary_tree_t *root;
+	binary_tree_t *root, *root2 = NULL;
 	int ret;
 
 	root = binary_tree_node(NULL, 98);
@@ -25,5 +25,13 @@ int main(void)
 	printf("Is %d a leaf: %d\n", root->right->n, ret);
 	ret = binary_tree_is_leaf(root->right->right);
 	printf("Is %d a leaf: %d\n", root->right->right->n, ret);
+
+	ret = binary_tree_is_leaf(root2);
+	printf("Is root2=NULL a leaf: %d\n", ret);
+
+	root2 = binary_tree_node(NULL, 15);
+	ret = binary_tree_is_leaf(root2);
+	printf("Is root2=1 node a leaf: %d\n", ret);
+
 	return (0);
 }
