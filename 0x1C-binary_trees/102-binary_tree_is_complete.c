@@ -66,16 +66,14 @@ int isPerfect(const binary_tree_t *tree)
 
 
 /**
- * binary_tree_is_perfect - Checks if binary tree is perfect.
- * Perfect binary tree means nodes=2^(h+1), where h=height.
- * Leaf nodes=2^h or (n+1)/2
+ * binary_tree_is_complete - Checks if binary tree is complete
  * @tree: pointer to root of the binary tree
  * Return: 0 if FALSE. 1 if TRUE
  */
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
 	if (!tree)
-		return (1);
+		return (0);
 	if (!binary_tree_balance(tree) && isPerfect(tree))
 		return (1);
 	else
