@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "binary_trees.h"
 
 /**
@@ -8,19 +10,23 @@
  */
 bst_t *bst_insert(bst_t **tree, int value)
 {
-	bst_t *t;
-	bst_t *new;
+	bst_t *new = NULL;
 
-	t = *tree;
-
-	new = (bst_t *)binary_tree_node((binary_tree_t *)tree, value);
-	if (!t)
-		return (new);
-
-	if (value < t->n)
-		t->left = bst_insert(&(t->left), value);
-	else if (value > t->n)
-		t->right = bst_insert(&(t->right), value);
-
-	return ((bst_t *)new);
+	if (!(*tree))
+	{
+		new = (bst_t *)binary_tree_node((binary_tree_t *)tree, value);
+		*tree = new;
+		return (*tree);
+	}
+	if (value < (*tree)->n)
+	{
+		(*tree)->left = bst_insert(&((*tree)->left), value);
+		(*tree)->left->parent = (*tree)->left;
+	}
+	else if (value > (*tree)->n)
+	{
+		(*tree)->right = bst_insert(&((*tree)->right), value);
+		(*tree)->right->parent = (*tree)->right;
+	}
+	return (*tree);
 }
