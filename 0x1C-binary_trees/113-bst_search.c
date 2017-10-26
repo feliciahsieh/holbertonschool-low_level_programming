@@ -8,15 +8,17 @@
  */
 bst_t *bst_search(const bst_t *tree, int value)
 {
+	bst_t *match = NULL;
+
 	if (!tree)
 		return (NULL);
 
 	if (tree->n == value)
 		return (tree);
 	if (tree->n < value)
-		bst_search(tree->right, value);
+		match = bst_search(tree->right, value);
 	else
-		bst_search(tree->left, value);
+		match = bst_search(tree->left, value);
 
-	return (NULL);
+	return (match);
 }
