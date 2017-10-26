@@ -29,7 +29,10 @@ binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree)
 	lChild->right = tree;
 
 	if (gChild)
+	{
 		tree->left = gChild;
+		gChild->parent = tree;
+	}
 	else
 		tree->left = NULL;
 
