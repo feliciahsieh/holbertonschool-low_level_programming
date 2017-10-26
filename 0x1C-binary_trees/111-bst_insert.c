@@ -8,7 +8,6 @@
  */
 bst_t *bst_insert(bst_t **tree, int value)
 {
-	/* THIS DOESN"T WORK. TYPE ERROR */
 	bst_t *t;
 	bst_t *new;
 
@@ -19,9 +18,9 @@ bst_t *bst_insert(bst_t **tree, int value)
 		return (new);
 
 	if (value < t->n)
-		t->left = bst_insert(t->left, value);
+		t->left = bst_insert(&(t->left), value);
 	else if (value > t->n)
-		t->right = bst_insert(t->right, value);
+		t->right = bst_insert(&(t->right), value);
 
 	return ((bst_t *)new);
 }
