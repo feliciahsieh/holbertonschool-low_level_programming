@@ -50,5 +50,4 @@ int binary_tree_is_heap(const binary_tree_t *tree)
 	}
 	else
 		return (0);
-	return (r);
 }
