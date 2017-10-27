@@ -17,17 +17,38 @@ int isLeaf(const binary_tree_t *node)
  */
 int binary_tree_is_heap(const binary_tree_t *tree)
 {
-	/* int isBinHeap = 1; */
-	
+	int r = 1;
+
 	if (!tree)
 		return (0);
 
-	if ((tree->n > tree->left->n) && (tree->n > tree->right->n) &&
-	    isLeaf(tree->left) && isLeaf(tree->right))
+	if (isLeaf(tree))
 		return (1);
+
+	if ((tree->right) && (tree->left == NULL))
+	{
+		if (tree->right->n > tree->n)
+		{
+			return (1);
+		}
+		return (0);
+	}
+
+	if ((tree->left) && (tree->right == NULL))
+	{
+		if (tree->left->n < tree->n)
+		{
+			return (1);
+		}
+		return (0);
+	}
+	if ((tree->n > tree->left->n) && (tree->n > tree->right->n))
+	{
+		r = binary_tree_is_heap(tree->left);
+		r = r && binary_tree_is_heap(tree->right);
+		return (r);
+	}
 	else
 		return (0);
-
-	return (binary_tree_is_heap(tree->left) &&
-		binary_tree_is_heap(tree->right));
+	return (r);
 }
