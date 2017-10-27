@@ -17,8 +17,6 @@ int isLeaf(const binary_tree_t *node)
  */
 int binary_tree_is_heap(const binary_tree_t *tree)
 {
-	int r = 1;
-
 	if (!tree)
 		return (0);
 
@@ -44,9 +42,15 @@ int binary_tree_is_heap(const binary_tree_t *tree)
 	}
 	if ((tree->n > tree->left->n) && (tree->n > tree->right->n))
 	{
-		r = binary_tree_is_heap(tree->left);
-		r = r && binary_tree_is_heap(tree->right);
-		return (r);
+		if (binary_tree_is_heap(tree->left))
+		{
+			if (binary_tree_is_heap(tree->right))
+				return (1);
+			else
+				return (0);
+		}
+		else
+			return (0);
 	}
 	else
 		return (0);
