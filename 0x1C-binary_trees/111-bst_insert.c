@@ -12,21 +12,23 @@ bst_t *bst_insert(bst_t **tree, int value)
 {
 	bst_t *new = NULL;
 
+	new = (bst_t *)binary_tree_node((binary_tree_t *)tree, value);
 	if (!(*tree))
 	{
-		new = (bst_t *)binary_tree_node((binary_tree_t *)tree, value);
 		*tree = new;
 		return (new);
-	}
-	if (value < (*tree)->n)
+	} else
 	{
-		(*tree)->left = bst_insert(&((*tree)->left), value);
-		(*tree)->left->parent = (*tree);
+		if (value < (*tree)->n)
+		{
+			(*tree)->left = bst_insert(&((*tree)->left), value);
+			(*tree)->left->parent = (*tree);
+		}
+		else if (value > (*tree)->n)
+		{
+			(*tree)->right = bst_insert(&((*tree)->right), value);
+			(*tree)->right->parent = (*tree);
+		}
 	}
-	else if (value > (*tree)->n)
-	{
-		(*tree)->right = bst_insert(&((*tree)->right), value);
-		(*tree)->right->parent = (*tree);
-	}
-	return (*tree);
+	return (new);
 }
