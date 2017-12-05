@@ -1,6 +1,31 @@
 #include <stdio.h>
 #include "search_algos.h"
 
+#define MSG_STD 0
+#define MSG_LIST 1
+
+/**
+ * printArrayList - prints subarray being evaluated
+ * @array: array being inspected
+ * @l: left index of array to print
+ * @r: right index of array to print
+ */
+void printArrayList(int *array, size_t l, size_t r)
+{
+	size_t a;
+
+	array = array;
+
+	printf("Searching in array: ");
+	for (a = l; a < r; a++)
+	{
+		if (a != l)
+			printf(", ");
+		printf("%d", array[a]);
+	}
+	printf("\n");
+}
+
 /**
  * printArray - prints subarray being evaluated
  * @array: array being inspected
@@ -10,8 +35,9 @@
  */
 void printArray(int *array, size_t i1, size_t i2, int msg)
 {
+	array = array;
 	if (msg == 0)
-		printf("Value checked array[%lu] = [%d]\n", i1, array[i]);
+		printf("Value checked array[%lu] = [%d]\n", i1, array[i1]);
 	else
 		printf("Value found between indexes [%lu] and [%lu]\n", i1, i2);
 }
@@ -30,39 +56,29 @@ size_t binarySearch(int *array, int value, size_t lo, size_t hi)
 	int left_side = 0;
 
 	left_side = left_side;
-
 	if ((hi == 0) || (array == NULL))
 		return (-1);
 
-	while (1)
+	if (l > r)
+		return (-1);
+	m = ((l + r) / 2);
+	if (left_side)
+		printArrayList(array, l, r);
+	else
+		printArrayList(array, l, r + 1);
+	if (array[m] == value)
 	{
-		if (l > r)
-			return (-1);
-		m = ((l + r) / 2);
-		if (array[m] != value)
-		{
-                        /* if (left_side)
-				printArray(array, m);
-			else
-				printArray(array, m);
-                        */
-			if (array[m] < value)
-			{
-				l = m + 1;
-				left_side = 0;
-			}
-			else if (array[m] > value)
-			{
-				r = m - 1;
-				left_side = 1;
-			}
-		}
-		else
-		{
-			printArray(array, m, hi);
-			return (m);
-		}
+		return (m);
 	}
+	else if (array[m] < value)
+	{
+		return (binarySearch(array, value, m + 1, r));
+	}
+	else
+	{
+		return (binarySearch(array, value, l, m - 1));
+	}
+
 	return (-1);
 }
 
@@ -83,10 +99,11 @@ int exponential_search(int *array, size_t size, int value)
 
 	while ((bound < size) && (array[bound] < value))
 	{
-		printArray(array, bound, 0);
+		printArray(array, bound, size, MSG_STD);
 		bound *= 2;
 	}
 
-	min = ((bound < size) ? bound : size);
+	min = ((bound < size) ? bound : size - 1);
+OB	printArray(array, bound / 2, min, MSG_LIST);
 	return (binarySearch(array, value, bound / 2, min));
 }
