@@ -4,6 +4,7 @@
 /**
  * printArray - prints subarray being evaluated
  * @array: array being inspected
+ * @size: size of array
  * @i: index of array to print
  */
 void printArray(int *array, size_t size, size_t i)
@@ -43,14 +44,11 @@ int interpolation_search(int *array, size_t size, int value)
 		else if (v < array[pos])
 			h = pos - 1;
 		else
-			return pos;
+			return (pos);
 	}
 
 	if (v == array[l])
-		return l;
-	else
-	{
-		printArray(array, size, pos);
-		return -1;
-	}
+		return (l);
+	printArray(array, size, pos);
+	return (-1);
 }
