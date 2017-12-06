@@ -27,11 +27,12 @@ int interpolation_search(int *array, size_t size, int value)
 {
 	int v = value;
 	size_t l = 0, h = size - 1;
-	size_t pos = l + (((double)(h - l) / (array[h] - array[l]))
-			    * (v - array[l]));
+	size_t pos;
 
 	if ((size == 0) || (array == NULL))
 		return (-1);
+
+	pos = l + (((double)(h - l) / (array[h] - array[l])) * (v - array[l]));
 
 	while ((array[h] != array[l]) && (v >= array[l]) &&
 	       (v <= array[h]))
