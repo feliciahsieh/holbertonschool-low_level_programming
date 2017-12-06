@@ -61,19 +61,24 @@ size_t binary(int *array, int value, size_t l, size_t r)
 		printArrayList(array, l, r + 1);
 	if (array[m] == value)
 	{
-		printf("Found!!! testing %lu\n", m);
 		if (array[m - 1] == value)
 		{
-			printf("Found!!! testing %lu\n", m - 1);
+			printArrayList(array, m - 1, m);
 			return (binary(array, value, m - 1, m - 1));
 		}
 		else
 			return (m);
 	}
 	if (array[m] < value)
+	{
+		left_side = 0;
 		return (binary(array, value, m + 1, r));
+	}
 	else
+	{
+		left_side = 1;
 		return (binary(array, value, l, m - 1));
+	}
 }
 
 /**
@@ -103,16 +108,20 @@ int advanced_binary(int *array, size_t size, int value)
 	{
 		if (array[m - 1] == value)
 		{
-			printf("Found*** testing %lu\n", m - 1);
 			return (binary(array, value, m - 1, m - 1));
 		}
 		else
 			return (m);
 	}
 	if (array[m] < value)
+	{
+		left_side = 0;
 		return (binary(array, value, m + 1, r));
+	}
 	else
+	{
+		left_side = 1;
 		return (binary(array, value, l, m - 1));
-
+	}
 	return (-1);
 }
