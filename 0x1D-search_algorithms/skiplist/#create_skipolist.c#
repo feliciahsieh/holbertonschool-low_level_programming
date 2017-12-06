@@ -1,0 +1,9 @@
+size];
+node->index = size;
+node->express = NULL;
+node->next = list;
+list = node;
+}
+init_express(list, save_size);
+return (list);
+}1;95;0c
