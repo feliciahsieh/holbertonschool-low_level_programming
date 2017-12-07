@@ -15,12 +15,9 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 
 	if (list == NULL)
 		return (NULL);
-	if (c->n == value)
-		return (c);
 
 	while (c && (c->n < value) && !edgecase)
 	{
-		printf("Value checked at index [%lu] = [%d]\n", c->index, c->n);
 		prev = c;
 		c = c->express;
 		if (c == NULL)
@@ -30,6 +27,9 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 			for (pp = c; pp->next; pp = pp->next)
 				;
 		}
+		if (!edgecase)
+			printf("Value checked at index [%lu] = [%d]\n",
+			       c->index, c->n);
 	}
 	if (!edgecase)
 		printf("Value found between indexes [%lu] = [%lu]\n",
