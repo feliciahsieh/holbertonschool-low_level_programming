@@ -18,9 +18,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 		return (NULL);
 	if (value < c->n)
 		return (NULL);
-	if (value == c->n)
-		return (c);
-	while (c && (c->n < value) && !edgecase)
+	while (c && (c->n <= value) && !edgecase)
 	{
 		prev = c;
 		c = c->express;
