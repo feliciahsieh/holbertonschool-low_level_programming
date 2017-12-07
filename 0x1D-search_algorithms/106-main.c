@@ -33,7 +33,7 @@ int main(void)
 	res =  linear_skip(NULL, 2);
 	printf("Found %d at index: %p\n\n", 2, (void *) res);
 	res =  linear_skip(list, -1);
-	printf("Found %d at index: %p\n\n", -1, (void *) res);
+	printf("Found %d at index: %p\n\n", -100, (void *) res);
 
 	printf("ALL VALUES\n");
 	res =  linear_skip(list, 0);
