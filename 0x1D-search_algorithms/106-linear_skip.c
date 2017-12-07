@@ -16,7 +16,6 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 	edgecase = 0;
 	if (list == NULL)
 		return (NULL);
-
 	if (value < c->n)
 		return (NULL);
 	if (value == c->n)
@@ -46,10 +45,7 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 	{
 		printf("Value checked at index [%lu] = [%d]\n", c->index, c->n);
 		if (c->n == value)
-		{
 			return (c);
-		}
 	}
-
 	return (NULL);
 }
