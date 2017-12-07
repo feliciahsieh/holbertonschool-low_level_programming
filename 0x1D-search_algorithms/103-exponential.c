@@ -104,6 +104,6 @@ int exponential_search(int *array, size_t size, int value)
 	}
 
 	min = ((bound < size) ? bound : size - 1);
-OB	printArray(array, bound / 2, min, MSG_LIST);
+	printArray(array, bound / 2, min, MSG_LIST);
 	return (binarySearch(array, value, bound / 2, min));
 }
