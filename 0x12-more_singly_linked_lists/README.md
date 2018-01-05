@@ -1,55 +1,183 @@
-0x12. C - More singly linked lists
-This is the README.md file for this project
+<h1 class="gap">0x12. C - More singly linked lists</h1>
 
-Requirements
-Compiled on Ubuntu 14.04 LTS using gcc 4.8.4 (C90)
-Uses Compile flags -Wall -Werror -Wextra and -pedantic -g
-Code follows Betty style format (betty-style.pl and betty-doc.pl)
-No global variables were used
-All files have 5 functions or less per file
-The only C standard library functions allowed are malloc, free and exit
-The header file is called lists.h and is Include Guarded
 
-Function Prototypes:
+<h4 class="task">
+    0. Print list
+      <span class="alert alert-warning mandatory-optional">
+        mandatory
+      </span>
+</h4><p>Write a function that prints all the elements of a <code>listint_t</code> list.</p><ul>
+<li>Prototype: <code>size_t print_listint(const listint_t *h);</code></li>
+<li>Return: the number of nodes</li>
+<li>Format: see example</li>
+<li>You are allowed to use <code>printf</code></li>
+</ul>
 
-size_t print_listint(const listint_t *h)
--prints all nodes of a listint_t list
 
-size_t listint_len(const listint_t *h)
--returns the number of elements in a linked listint_t list
+<h4 class="task">
+    1. List length
+      <span class="alert alert-warning mandatory-optional">
+        mandatory
+      </span>
+</h4><p>Write a function that returns the number of elements in a linked <code>listint_t</code> list.</p><ul>
+<li>Prototype: <code>size_t listint_len(const listint_t *h);</code></li>
+</ul>
 
-listint_t *add_nodeint(listint_t **head, const int n)
--adds a new node at the beginning of a listint_t list
 
-listint_t *add_nodeint_end(listint_t **head, const int n)
--adds a new node at the end of a listint_t list
+<h4 class="task">
+    2. Add node
+      <span class="alert alert-warning mandatory-optional">
+        mandatory
+      </span>
+</h4><p>Write a function that adds a new node at the beginning of a <code>listint_t</code> list.</p><ul>
+<li>Prototype: <code>listint_t *add_nodeint(listint_t **head, const int n);</code></li>
+<li>Return: the address of the new element, or <code>NULL</code> if it failed</li>
+</ul>
 
-void free_listint(listint_t *head);
--frees a listint_t list
 
-void free_listint2(listint_t **head)
--frees a listint_t list and set head to NULL
+<h4 class="task">
+    3. Add node at the end
+      <span class="alert alert-warning mandatory-optional">
+        mandatory
+      </span>
+</h4><p>Write a function that adds a new node at the end of a <code>listint_t</code> list.</p><ul>
+<li>Prototype: <code>listint_t *add_nodeint_end(listint_t **head, const int n);</code></li>
+<li>Return: the address of the new element, or <code>NULL</code> if it failed</li>
+</ul>
 
-int pop_listint(listint_t **head)
--deletes the head node of a listint_t linked list and returns the head node's data (n)
 
-listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
--returns the nth node of a listint_t linked list
+<h4 class="task">
+    4. Free list
+      <span class="alert alert-warning mandatory-optional">
+        mandatory
+      </span>
+</h4><p>Write a function that free a <code>listint_t</code> list.</p><ul>
+<li>Prototype: <code>void free_listint(listint_t *head);</code></li>
+</ul>
 
-int sum_listint(listint_t *head)
--returns the sum of all the data (n) of a listint_t linked list
 
-listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
--inserts a new node at a given position
+<h4 class="task">
+    5. Free
+      <span class="alert alert-warning mandatory-optional">
+        mandatory
+      </span>
+</h4><p>Write a function that free a <code>listint_t</code> list.</p><ul>
+<li>Prototype: <code>void free_listint2(listint_t **head);</code></li>
+<li>The function sets the <code>head</code> to <code>NULL</code></li>
+</ul>
 
-int delete_nodeint_at_index(listint_t **head, unsigned int index)
--deletes the node at index index of a listint_t linked list. Return 1 if success or 0
 
-Data Structure used:
-struct listint_s - singly linked list
+<h4 class="task">
+    6. Pop
+      <span class="alert alert-warning mandatory-optional">
+        mandatory
+      </span>
+</h4><p>Write a function that deletes the head node of a <code>listint_t</code> linked list, and returns the head node’s data (n).</p><ul>
+<li>Prototype: <code>int pop_listint(listint_t **head);</code></li>
+<li>if the linked list is empty return <code>0</code></li>
+</ul>
 
-typedef struct listint_s
-{
-    int n; (data payload)
-    struct listint_s *next; (pointer to next node)
-} listint_t;
+
+<h4 class="task">
+    7. Get node at index
+      <span class="alert alert-warning mandatory-optional">
+        mandatory
+      </span>
+</h4><p>Write a function that returns the nth node of a <code>listint_t</code> linked list.</p><ul>
+<li>Prototype: <code>listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)</code></li>
+<li>where <code>index</code> is the index of the node, starting at <code>0</code></li>
+<li>if the node does not exist, return <code>NULL</code></li>
+</ul>
+
+
+<h4 class="task">
+    8. Sum list
+      <span class="alert alert-warning mandatory-optional">
+        mandatory
+      </span>
+</h4><p>Write a function that returns the sum of all the data (n) of a <code>listint_t</code> linked list.</p><ul>
+<li>Prototype: <code>int sum_listint(listint_t *head);</code></li>
+<li>if the list is empty, return <code>0</code></li>
+</ul>
+
+
+<h4 class="task">
+    9. Insert
+      <span class="alert alert-warning mandatory-optional">
+        mandatory
+      </span>
+</h4><p>Write a function that inserts a new node at a given position.</p><ul>
+<li>Prototype: <code>listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n);</code></li>
+<li>where <code>idx</code> is the index of the list where the new node should be added. Index starts at <code>0</code></li>
+<li>Returns: the address of the new node, or <code>NULL</code> if it failed</li>
+<li>if it is not possible to add the new node at index <code>idx</code>, do not add the new node and return <code>NULL</code></li>
+</ul>
+
+
+<h4 class="task">
+    10. Delete at index
+      <span class="alert alert-warning mandatory-optional">
+        mandatory
+      </span>
+</h4><p>Write a function that deletes the node at index <code>index</code> of a <code>listint_t</code> linked list.</p><ul>
+<li>Prototype: <code>int delete_nodeint_at_index(listint_t **head, unsigned int index);</code></li>
+<li>where <code>index</code> is the index of the node that should be deleted. Index starts at <code>0</code></li>
+<li>Returns: <code>1</code> if it succeeded, <code>-1</code> if it failed</li>
+</ul>
+
+
+<h4 class="task">
+    11. Reverse list
+      <span class="alert alert-info mandatory-optional">
+        #advanced
+      </span>
+</h4><p>Write a function that reverses a <code>listint_t</code> linked list.</p><ul>
+<li>Prototype: <code>listint_t *reverse_listint(listint_t **head);</code></li>
+<li>Returns: a pointer to the first node of the reversed list</li>
+<li>You are not allowed to use more than <code>1</code> loop.</li>
+<li>You are not allowed to use <code>malloc</code>, <code>free</code> or arrays</li>
+<li>You can only declare a maximum of two variables in your function</li>
+</ul>
+
+
+<h4 class="task">
+    12. Print (safe version)
+      <span class="alert alert-info mandatory-optional">
+        #advanced
+      </span>
+</h4><p>Write a function that prints a <code>listint_t</code> linked list.</p><ul>
+<li>Prototype: <code>size_t print_listint_safe(const listint_t *head);</code></li>
+<li>Returns: the number of nodes in the list</li>
+<li>This function can print lists with a loop</li>
+<li>You should go through the list only once</li>
+<li>If the function fails, exit the program with status <code>98</code></li>
+<li>Output format: see example</li>
+</ul>
+
+
+<h4 class="task">
+    13. Free (safe version)
+      <span class="alert alert-info mandatory-optional">
+        #advanced
+      </span>
+</h4><p>Write a function that free a <code>listint_t</code> list.</p><ul>
+<li>Prototype: <code>size_t free_listint_safe(listint_t **h);</code></li>
+<li>This function can free lists with a loop</li>
+<li>You should go though the list only once</li>
+<li>Returns: the size of the list that was free’d</li>
+<li>The function sets the <code>head</code> to <code>NULL</code></li>
+</ul>
+
+
+<h4 class="task">
+    14. Find the loop
+      <span class="alert alert-info mandatory-optional">
+        #advanced
+      </span>
+</h4><p>Write a function that finds the loop in a linked list.</p><ul>
+<li>Prototype: <code>listint_t *find_listint_loop(listint_t *head);</code></li>
+<li>Returns: The address of the node where the loop starts, or <code>NULL</code> if there is no loop</li>
+<li>You are not allowed to use <code>malloc</code>, <code>free</code> or arrays</li>
+<li>You can only declare a maximum of two variables in your function</li>
+</ul>
+
