@@ -1,46 +1,3 @@
-# C and Bash (low-level code)
-
-----
-##Project name
-Included upon creation of your README file
-
-##Description
-Various C and Bash scripts that runs small tasks. The code will/does... and is important because.
-
-##Table of Contents
-
-##Installation
-Steps to install. Tell other users how to install your project locally. Include a gif if possible.
-
-## Usage
-How to use your project after installation. Include screenshots of your project in action.
-
-##Contributing
-If you would like to contribute to the further development of this work, please contact Felicia Hsieh
-
-##Credits
-Felicia Hsieh
-
-##License GNU Public License
-
-##Date
-*6/25/17
-
-----
-
-## usage
-1. Write markdown text in this textarea.
-2. Click 'HTML Preview' button.
-
-----
-## changelog
-* 26-Jun-2017 re-design
-
-----
-## Thanks
-* [markdown-js](https://github.com/evilstreak/markdown-js).
-See [Wikipedia](http://en.wikipedia.org/wiki/Markdown)
-
 <img src="https://www.holbertonschool.com/assets/holberton-logo-1cc451260ca3cd297def53f2250a9794810667c7ca7b5fa5879a569a457bf16f.png" width="300">
 
 # Low level programming & Algorithms - C programming language
@@ -88,4 +45,7 @@ This repository contains projects on C programming lanugage. The projects will c
 22. [0x17-dynamic_libraries](./0x17-dynamic_libraries)
 23. [0x18-stacks_queues_lifo_fifo @ 66f9a14](https://github.com/thomaspwang/monty) *aka MONTY
 24. [0x19-hash_tables](./0x19-hash_tables)
-...
+25. [0x1A-sorting_algorithms](./0x1A-sorting_algorithms)
+26. [0x1B-makefiles](./0x1B-makefiles)
+27. [0x1C-binary_trees](./0x1C-binary_trees)
+28. [0x1D-search_algorithms](./0x1D-search_algorithms)
