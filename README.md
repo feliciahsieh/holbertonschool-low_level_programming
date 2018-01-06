@@ -8,7 +8,7 @@
 Thanks for visiting my programming projects. It is written in C although a few might use Assembly.
 
 ## Table of Contents
-* [About](#About)
+* [About](#about)
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Usage](#usage)
