@@ -38,13 +38,13 @@ This repository contains projects on C programming language. The projects cover:
 ## Installation
 In your terminal, git clone the directory with the following command:
 ```
-git clone https://github.com/feliciahsieh/[Github project name]
+git clone https://github.com/feliciahsieh/[Github project directory]
 ```
 
 Compile the files using:
 
 ```sh
-gcc -Wall -Werror -Wextra -pedantic *.c -o monty
+gcc -Wall -Werror -Wextra -pedantic *.c -o [list of all c files]
 ```
 
 ## Usage
