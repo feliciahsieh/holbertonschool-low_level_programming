@@ -1,11 +1,22 @@
 <img src="https://www.holbertonschool.com/assets/holberton-logo-1cc451260ca3cd297def53f2250a9794810667c7ca7b5fa5879a569a457bf16f.png" width="300">
 
-# Low level programming & Algorithms - C programming language
+# Low level programming & Algorithms - using C
 
 <img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/212/cisfun.jpg" width="500">
 
+## Welcome
+Thanks for visiting my programming projects. It is written in C although a few might use Assembly.
+
+## Table of Contents
+* [About](#About)
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Projects](#projects)
+* [Credits](#credits)
+
 ## About
-This repository contains projects on C programming lanugage. The projects will cover:
+This repository contains projects on C programming language. The projects cover:
 - Compilation
 - Commenting code and following a coding style standard
 - Variables, types, operators, expressions Loops, nested loops
@@ -19,6 +30,29 @@ This repository contains projects on C programming lanugage. The projects will c
 - Virtual Memory, Heap and stack
 - Binary operations
 - Makefiles
+
+## Requirements
+* Ubuntu 14.04 LTS
+* gcc 4.8.4 (-Wall, -Werror, -Wextra, and -pedantic flags)
+
+## Installation
+In your terminal, git clone the directory with the following command:
+```
+git clone https://github.com/feliciahsieh/[Github project name]
+```
+
+Compile the files using:
+
+```sh
+gcc -Wall -Werror -Wextra -pedantic *.c -o monty
+```
+
+## Usage
+```sh
+./[executable file]
+```
+
+Run a C program at your shell prompt normally as directed.
 
 ## Projects
 1. [0x00-hello_world](./0x00-hello_world)
@@ -49,3 +83,6 @@ This repository contains projects on C programming lanugage. The projects will c
 26. [0x1B-makefiles](./0x1B-makefiles)
 27. [0x1C-binary_trees](./0x1C-binary_trees)
 28. [0x1D-search_algorithms](./0x1D-search_algorithms)
+
+## Credits
+Work is owned and maintained by Felicia Hsieh ([@feliciahsiehsw](https://twitter.com/feliciahsiehsw)). A few projects were group projects, and joint ownership will be reflected in each respective project README.md file.
