@@ -4,54 +4,58 @@
 /**
  * print_array - print array
  * @array: sorted array of integers
+ * @l: left index
+ * @r: right index
  * Return: None
  */
-void print_array(int *array, size_t start, size_t end)
+void print_array(int *array, size_t l, size_t r)
 {
-  size_t i;
+	size_t i;
 
-  printf("Searching in array: ");
-  for (i = start; i < end - 1; i++) {
-    printf("%d, ", array[i]);
-  }
-  printf("%d\n", array[i]);
+	printf("Searching in array: ");
+	for (i = l; i < r; i++)
+	{
+		printf("%d, ", array[i]);
+	}
+	printf("%d\n", array[i]);
 }
 
 
 /**
  * binarySearch - wrapper for binary_search
  * @array: sorted array of integers
- * @start: start index to search
- * @end: end index to search
+ * @l: start index to search
+ * @r: end index to search
  * @value: target value to search for
  * Return: -1 if not found or array is NULL. Otherwise, return index
  */
-int binarySearch(int *array, size_t start, size_t end, int value)
+int binarySearch(int *array, size_t l, size_t r, int value)
 {
-  size_t mid = 0;
-  int index = -1;
+	size_t m = 0;
+	int index = -1;
 
-  mid = (end + start) / 2;
+	if (l > r)
+	{
+		return (-1);
+	}
 
-  printf("binarySearch: start: %lu  end: %lu  mid: %lu\n", start, end, mid);
+	m = (l + r) / 2;
 
-  if (array[mid] == value) {
-    printf("****I FOUND IT****\n");
-    return mid;
-  }
-  if (start >= end)
-    return -1;
+	print_array(array, l, r);
+	if (array[m] < value)
+	{
+		index = binarySearch(array, m + 1, r, value);
+	}
+	if (array[m] > value)
+	{
+		index = binarySearch(array, l, m, value);
+	}
+	if (array[m] == value)
+	{
+		return (m);
+	}
 
-  print_array(array, start, end);
-
-  /* check left half */
-  index = binarySearch(array, start, mid, value);
-
-  /* check right half */
-  if (index == -1)
-    index = binarySearch(array, mid + 1, end, value);
-
-  return (index);
+	return (index);
 }
 
 
@@ -64,20 +68,14 @@ int binarySearch(int *array, size_t start, size_t end, int value)
  */
 int binary_search(int *array, size_t size, int value)
 {
-  size_t mid = 0;
-  int index = -1;
+	int index = -1;
+	size_t l = 0;
+	size_t r = size - 1;
 
-  if (array == NULL)
-    return -1;
+	if (array == NULL)
+		return (-1);
 
-  print_array(array, 0, size);
+	index = binarySearch(array, l, r, value);
 
-  mid = size / 2;
-  if (array[mid] == value) {
-    return mid;
-  } else {
-    index = binarySearch(array, 0, size, value);
-  }
-
-  return (index);
+	return (index);
 }
