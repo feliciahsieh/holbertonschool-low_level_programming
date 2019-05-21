@@ -12,7 +12,7 @@
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int carryover, digit, longN, l1, l2, i, j, temp;
+	int carryover = 0, digit, longN, l1, l2, i, j, temp;
 
 	for (i = 0; i < size_r; i++)
 		r[i] = '\0';
