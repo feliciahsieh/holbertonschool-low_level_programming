@@ -166,6 +166,7 @@ Add one line to <a href="https://github.com/holbertonschool/make_magic_happen/bl
 <li>You can assume that there will be only digits in the strings <code>n1</code> and <code>n2</code></li>
 <li><code>n1</code> and <code>n2</code> will never be empty</li>
 <li>If the result can not be stored in <code>r</code> the function must return <code>0</code></li>
+<li>Compile with "gcc -Wall -pedantic -Werror -Wextra 102-main.c 102-infinite_add.c -o 102-add"</li>
 </ul>
 
 
@@ -186,4 +187,3 @@ Add one line to <a href="https://github.com/holbertonschool/make_magic_happen/bl
 <li>You are allowed to use the standard library</li>
 <li>The output should look like the following example, and formatted exactly the same way:</li>
 </ul>
-
