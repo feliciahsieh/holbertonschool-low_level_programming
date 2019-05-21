@@ -12,30 +12,24 @@
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int carryover = 0, digit, longerN = 0, lenN1 = 0, lenN2 = 0, i = 0;
+	int carryover, digit, longN, l1, l2, i, j, temp;
 
 	for (i = 0; i < size_r; i++)
 		r[i] = '\0';
-	for (lenN1 = 0; n1[lenN1] != '\0'; lenN1++)
+	for (l1 = 0; n1[l1] != '\0'; l1++)
 		;
-	for (lenN2 = 0; n2[lenN2] != '\0'; lenN2++)
+	for (l2 = 0; n2[l2] != '\0'; l2++)
 		;
-	if ((lenN1 > size_r - 2) || (lenN2 > size_r - 2))
+	if ((l1 > size_r - 2) || (l2 > size_r - 2))
 		return (0);
-	if (lenN1 > lenN2)
-		longerN = lenN1;
-	else
-		longerN = lenN2;
-	lenN1--;
-	lenN2--;
-	for (i = longerN; i >= 0; i--, lenN1--, lenN2--)
+	longN = (l1 > l2) ? l1 : l2;
+	for (i = 0, l1--, l2--; i < longN; i++, l1--, l2--, digit = 0)
 	{
-		digit = 0;
-		if (lenN1 >= 0)
-			digit = n1[lenN1] - '0';
-		if (lenN2 >= 0)
-			digit = digit + n2[lenN2] - '0';
-		digit = digit + carryover;
+		if (l1 >= 0)
+			digit = n1[l1] - '0';
+		if (l2 >= 0)
+			digit = digit + n2[l2] - '0';
+		digit += carryover;
 		if (digit >= 10)
 		{
 			digit = digit % 10;
@@ -46,8 +40,15 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		r[i] = digit + '0';
 	}
 	if (carryover == 1)
-		r[0] = carryover + '0';
+		r[i] = carryover + '0';
 	else
-		r++;
+		i--;
+	for (j = 0; j < i; j++, i--)
+	{
+		temp = r[j];
+		r[j] = r[i];
+		r[i] = temp;
+	}
+	r[size_r - 1] = '\0';
 	return (r);
 }
