@@ -12,22 +12,20 @@
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int carryover=0, digit, longerN=0, lenN1 = 0, lenN2 = 0;
-	int i = 0;
+	int carryover = 0, digit, longerN = 0, lenN1 = 0, lenN2 = 0, i = 0;
 
-	r[0] = '\0';
+	for (i = 0; i < size_r; i++)
+		r[i] = '\0';
 	for (lenN1 = 0; n1[lenN1] != '\0'; lenN1++)
 		;
 	for (lenN2 = 0; n2[lenN2] != '\0'; lenN2++)
 		;
 	if ((lenN1 >= size_r - 1) || (lenN2 >= size_r - 1))
 		return (0);
-
 	if (lenN1 > lenN2)
 		longerN = lenN1;
 	else
 		longerN = lenN2;
-
 	lenN1--;
 	lenN2--;
 	for (i = longerN; i > 0; i--)
@@ -52,6 +50,5 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	if (carryover == 1)
 		r[0] = carryover + '0';
 	r[longerN + 1] = '\0';
-
 	return (r);
 }
